@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Estratégico de Vida Profesional · A un clic</title>
+    <meta name="description" content="Un camino de 5 pasos para clarificar quién eres, qué sabes hacer y hacia dónde quieres llegar. Elabora tu Plan Estratégico de Vida Profesional.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230033a0'/%3E%3Cpath d='M8 24L16 8L24 24M11 19h10' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+    <style>
+        :root {
+            --tec-blue: #0033a0;
+            --tec-blue-light: #e8edf8;
+            --step1-color: #7b2d9e;
+            --step2-color: #0096c7;
+            --step3-color: #e91e8c;
+            --step4-color: #0033a0;
+            --step5-color: #b8860b;
+            --text-dark: #111827;
+            --text-mid: #374151;
+            --text-light: #6b7280;
+            --border: #cbd5e1;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --radius: 12px;
+            --shadow: 0 1px 12px rgba(0,51,160,0.07);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        /* ── TOP BAR ── */
+        .top-bar {
+            background: var(--tec-blue);
+            color: white;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 60px;
+        }
+        .top-bar-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: .5px;
+            opacity: .95;
+        }
+        .top-bar-sub {
+            font-size: .78rem;
+            opacity: .7;
+            text-align: right;
+        }
+        .top-bar-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-top {
+            padding: 7px 18px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s, transform .1s;
+        }
+        .btn-top:active { transform: scale(.97); }
+        .btn-save {
+            background: #fff;
+            color: var(--tec-blue);
+        }
+        .btn-save:hover { background: #e0e9ff; }
+        .btn-reset {
+            background: rgba(255,255,255,.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,.35);
+        }
+        .btn-reset:hover { background: rgba(255,255,255,.25); }
+
+        /* ── HERO HEADER ── */
+        .hero {
+            background: #ffffff;
+            color: var(--text-dark);
+            text-align: center;
+            padding: 44px 40px 36px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-eyebrow {
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--tec-blue);
+            margin-bottom: 12px;
+            opacity: .8;
+        }
+        .hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            letter-spacing: -.5px;
+        }
+        .hero h1 span {
+            color: var(--tec-blue);
+        }
+        .hero-desc {
+            font-size: .88rem;
+            color: var(--text-mid);
+            max-width: 500px;
+            margin: 0 auto 28px;
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        /* ── PROGRESS STEPS ── */
+        .steps-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            padding: 0 20px;
+            position: relative;
+        }
+        .step-pill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px 16px 12px;
+            border-radius: 10px;
+            transition: background .2s;
+            position: relative;
+            min-width: 110px;
+        }
+        .step-pill:hover { background: var(--tec-blue-light); }
+        .step-pill.active { background: var(--tec-blue-light); }
+        .step-dot {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.05rem;
+            color: white;
+            margin-bottom: 6px;
+            border: 3px solid transparent;
+            transition: border-color .2s, transform .2s;
+        }
+        .step-pill.active .step-dot {
+            border-color: var(--text-dark);
+            transform: scale(1.1);
+        }
+        .step-dot-1 { background: var(--step1-color); }
+        .step-dot-2 { background: var(--step2-color); }
+        .step-dot-3 { background: var(--step3-color); }
+        .step-dot-4 { background: var(--step4-color); }
+        .step-dot-5 { background: var(--step5-color); }
+        .step-label {
+            font-size: .68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.3;
+        }
+        .step-pill.active .step-label { color: var(--tec-blue); }
+        .step-connector {
+            align-self: center;
+            width: 20px; height: 2px;
+            background: var(--border);
+            flex-shrink: 0;
+            margin-bottom: 20px;
+        }
+
+        /* ── MAIN CONTENT ── */
+        .main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 36px 24px 60px;
+        }
+
+        /* ── SECTION CARDS ── */
+        .step-section {
+            display: none;
+            animation: fadeIn .35s ease;
+        }
+        .step-section.visible { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .section-badge {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+        .badge-1 { background: var(--step1-color); }
+        .badge-2 { background: var(--step2-color); }
+        .badge-3 { background: var(--step3-color); }
+        .badge-4 { background: var(--step4-color); }
+        .badge-5 { background: var(--step5-color); }
+        .section-title-group {}
+        .section-question {
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -.3px;
+        }
+
+        /* ── CARD ── */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 24px 28px;
+            margin-bottom: 18px;
+            border: 1px solid var(--border);
+        }
+        .card-title {
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--tec-blue);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── FORM ELEMENTS ── */
+        label {
+            display: block;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--text-mid);
+            margin-bottom: 5px;
+            margin-top: 14px;
+        }
+        label:first-child { margin-top: 0; }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 9px 13px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .88rem;
+            color: var(--text-dark);
+            background: #fafbfd;
+            transition: border-color .2s, box-shadow .2s;
+            resize: vertical;
+        }
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--tec-blue);
+            box-shadow: 0 0 0 3px rgba(0,51,160,.1);
+            background: white;
+        }
+        textarea { min-height: 80px; }
+
+        /* ── IKIGAI GRID ── */
+        .ikigai-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .ikigai-item {
+            border-radius: 10px;
+            padding: 16px;
+            position: relative;
+        }
+        .ikigai-item label { margin-top: 0; color: white; opacity: .9; }
+        .ikigai-item textarea { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.3); color: white; }
+        .ikigai-item textarea::placeholder { color: rgba(255,255,255,.5); }
+        .ikigai-item textarea:focus { background: rgba(255,255,255,.25); border-color: rgba(255,255,255,.7); box-shadow: none; }
+        .ikigai-love { background: linear-gradient(135deg, #c2185b, #880e4f); }
+        .ikigai-need { background: linear-gradient(135deg, #1565c0, #0d47a1); }
+        .ikigai-good { background: linear-gradient(135deg, #e65100, #bf360c); }
+        .ikigai-paid { background: linear-gradient(135deg, #2e7d32, #1b5e20); }
+        .ikigai-center {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #37474f, #263238);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .ikigai-center label { color: white; opacity: .9; margin-top: 0; }
+        .ikigai-center textarea { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); color: white; }
+        .ikigai-center textarea::placeholder { color: rgba(255,255,255,.45); }
+        .ikigai-center textarea:focus { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.6); box-shadow: none; }
+        .ikigai-tag {
+            display: inline-block;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.6);
+            margin-bottom: 8px;
+        }
+
+        /* ── TAGS / CHIPS ── */
+        .chips-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .chip-option {
+            display: none;
+        }
+        .chip-label {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 99px;
+            border: 1.5px solid var(--border);
+            font-size: .82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .2s;
+            background: white;
+            color: var(--text-mid);
+            user-select: none;
+        }
+        .chip-option:checked + .chip-label {
+            border-color: var(--tec-blue);
+            background: var(--tec-blue);
+            color: white;
+        }
+        .chip-label:hover { border-color: var(--tec-blue); color: var(--tec-blue); }
+
+        /* ── AVENIDA CARDS ── */
+        .avenida-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .avenida-option { display: none; }
+        .avenida-card {
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all .2s;
+            background: white;
+        }
+        .avenida-card:hover { border-color: var(--step3-color); transform: translateY(-2px); }
+        .avenida-option:checked + .avenida-card {
+            border-color: var(--step3-color);
+            background: #fff0f7;
+            color: var(--step3-color);
+        }
+        .avenida-icon { font-size: 1.5rem; margin-bottom: 6px; }
+        .avenida-name { font-size: .82rem; font-weight: 700; }
+        .avenida-desc { font-size: .72rem; color: var(--text-light); margin-top: 2px; }
+        .avenida-option:checked + .avenida-card .avenida-desc { color: var(--step3-color); opacity: .7; }
+
+        /* ── METAS SMART ── */
+        .metas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+        .meta-card {
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .meta-card-cp { background: #e8f5e9; border: 1.5px solid #c8e6c9; }
+        .meta-card-mp { background: #e3f2fd; border: 1.5px solid #bbdefb; }
+        .meta-card-lp { background: #f3e5f5; border: 1.5px solid #e1bee7; }
+        .meta-card-title {
+            font-weight: 700;
+            font-size: .85rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .meta-card-cp .meta-card-title { color: #2e7d32; }
+        .meta-card-mp .meta-card-title { color: #1565c0; }
+        .meta-card-lp .meta-card-title { color: #6a1b9a; }
+        .meta-card-sub { font-size: .72rem; color: var(--text-light); }
+        .meta-card textarea { font-size: .82rem; min-height: 72px; }
+
+        .smart-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .smart-item {
+            border-radius: 8px;
+            padding: 12px 10px;
+            text-align: center;
+            background: var(--tec-blue-light);
+            border: 1.5px solid #c5d4f0;
+        }
+        .smart-letter {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--tec-blue);
+            line-height: 1;
+        }
+        .smart-word {
+            font-size: .72rem;
+            font-weight: 600;
+            color: var(--tec-blue);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 6px;
+        }
+        .smart-item textarea {
+            font-size: .75rem;
+            min-height: 58px;
+            padding: 6px 8px;
+        }
+
+        /* ── FEEDBACK SECTION ── */
+        .retroalimentación-mentor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .checklist {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: .88rem;
+            color: var(--text-mid);
+            line-height: 1.5;
+        }
+        .checklist input[type="checkbox"] {
+            width: 18px; height: 18px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            accent-color: var(--step5-color);
+        }
+
+        .revision-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .83rem;
+        }
+        .revision-table th {
+            background: var(--tec-blue-light);
+            color: var(--tec-blue);
+            font-weight: 700;
+            font-size: .72rem;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            padding: 9px 12px;
+            border: 1px solid #c5d4f0;
+            text-align: left;
+        }
+        .revision-table td {
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .revision-table td input[type="text"] {
+            border: none;
+            background: transparent;
+            padding: 2px 4px;
+            font-size: .83rem;
+        }
+        .revision-table td input[type="text"]:focus {
+            background: var(--tec-blue-light);
+            border-radius: 4px;
+            box-shadow: none;
+        }
+        .add-row-btn {
+            margin-top: 8px;
+            padding: 6px 14px;
+            border: 1.5px dashed var(--border);
+            border-radius: 6px;
+            background: transparent;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: .78rem;
+            color: var(--text-mid);
+            cursor: pointer;
+            transition: all .2s;
+        }
+        .add-row-btn:hover { border-color: var(--tec-blue); color: var(--tec-blue); background: var(--tec-blue-light); }
+
+        /* ── STRENGTHS ── */
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .strength-item {
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            font-size: .78rem;
+            color: var(--text-mid);
+            cursor: pointer;
+            transition: all .2s;
+            background: white;
+            position: relative;
+        }
+        .strength-item.selected {
+            border-color: var(--step1-color);
+            background: #f5eaff;
+            color: var(--step1-color);
+            font-weight: 600;
+        }
+        .strength-item .s-icon { font-size: 1.1rem; margin-bottom: 3px; }
+
+        /* ── NAV BOTTOM ── */
+        .step-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .nav-btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .88rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+        }
+        .nav-btn-prev {
+            background: white;
+            color: var(--tec-blue);
+            border: 1.5px solid var(--border);
+        }
+        .nav-btn-prev:hover { background: var(--tec-blue-light); border-color: var(--tec-blue); }
+        .nav-btn-next {
+            background: var(--tec-blue);
+            color: white;
+        }
+        .nav-btn-next:hover { background: #002277; }
+        .nav-btn:disabled { opacity: .35; cursor: not-allowed; }
+        .step-counter {
+            font-size: .82rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ── NOTICE BAR ── */
+        .notice {
+            background: #fffbea;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: .8rem;
+            color: #5c3d11;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        /* ── INVENTORY TABLE ── */
+        .inventory-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .inv-tab {
+            padding: 5px 14px;
+            border-radius: 99px;
+            font-size: .78rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1.5px solid var(--border);
+            background: white;
+            color: var(--text-mid);
+            transition: all .2s;
+        }
+        .inv-tab.active {
+            background: var(--step2-color);
+            border-color: var(--step2-color);
+            color: white;
+        }
+        .inv-tab:hover:not(.active) { border-color: var(--step2-color); color: var(--step2-color); }
+        .inv-panel { display: none; }
+        .inv-panel.visible { display: block; }
+
+        /* ── FOOTER ── */
+        .page-footer {
+            text-align: center;
+            padding: 18px 40px 20px;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+            margin-top: 0;
+        }
+        .footer-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .footer-dot {
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: var(--tec-blue);
+            opacity: .4;
+            display: inline-block;
+        }
+        .footer-name {
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--tec-blue);
+            letter-spacing: .2px;
+        }
+        .footer-role {
+            font-size: .75rem;
+            font-weight: 500;
+            color: var(--text-mid);
+        }
+        .footer-inst {
+            font-size: .75rem;
+            color: var(--text-light);
+        }
+        .footer-note {
+            font-size: .72rem;
+            color: var(--text-light);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            .no-print { display: none !important; }
+            .step-section { display: block !important; }
+            .main { padding: 0; max-width: 100%; }
+            body { background: white; font-size: 9pt; color: #111; }
+            .hero {
+                background: white !important;
+                border-bottom: 2px solid var(--tec-blue) !important;
+                padding: 20px 30px 16px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .hero h1 { font-size: 1.4rem; color: #111 !important; }
+            .hero-desc { color: #374151 !important; }
+            .card { box-shadow: none; border: 1px solid #9ca3af; break-inside: avoid; }
+            .top-bar { display: none !important; }
+            .ikigai-item, .meta-card, .smart-item { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .section-question { color: #374151 !important; }
+            .card-title { color: #0033a0 !important; }
+            .footer-inst { color: #374151 !important; }
+            .footer-note { color: #374151 !important; }
+            .page-footer { border-top: 1.5px solid #0033a0; }
+        }
+    /* Lectura, accesibilidad, móvil e impresión */
+:root { --text-light:#536175; --step2-color:#007b9f; --step3-color:#b7166c; --step5-color:#876208; }
+html { scroll-behavior:smooth; }
+body,button,input,textarea,select { font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif !important; }
+body { font-size:1rem; line-height:1.6; }
+[hidden] { display:none !important; }
+a { color:var(--tec-blue); text-underline-offset:3px; }
+button,select { font:inherit; }
+button { line-height:1.35; }
+button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible { outline:3px solid #b45505; outline-offset:4px; }
+h1,h2,h3 { line-height:1.25; }
+.skip-link { position:absolute; top:-100px; left:16px; padding:12px; background:white; z-index:20; }
+.skip-link:focus { top:12px; }
+.top-bar { padding:14px max(24px,calc((100vw - 1120px)/2)); gap:24px; flex-wrap:wrap; }
+.top-bar-logo { color:white; text-decoration:none; letter-spacing:0; font-size:1.15rem; }
+.top-bar-logo { line-height:1.4; }
+.top-bar-logo span { display:block; font-size:inherit; font-weight:inherit; }
+.view-nav { display:flex; gap:6px; flex-wrap:wrap; }
+.view-nav button { padding:10px 16px; color:white; background:transparent; border:1px solid transparent; border-radius:8px; font-weight:600; }
+.view-nav button[aria-current="page"] { background:white; color:var(--tec-blue); }
+.utility-bar { max-width:1120px; margin:auto; padding:12px 24px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.875rem; }
+.utility-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.utility-actions button,.legacy-notice button { background:white; color:var(--tec-blue); border:1px solid var(--border); border-radius:6px; padding:8px 12px; cursor:pointer; }
+.utility-actions .danger-link { color:#933324; }
+#save-status { max-width:440px; }
+#save-status[data-state="error"] { color:#9d281c; font-weight:600; }
+.legacy-notice { padding:16px 24px; background:#fff6d7; text-align:center; }
+.hero { text-align:left; padding:28px max(24px,calc((100vw - 1000px)/2)) 22px; }
+.hero h1 { font-size:clamp(1.6rem,3vw,2.25rem); max-width:760px; }
+.hero-desc { max-width:760px; margin:12px 0 24px; font-size:1rem; }
+.hero-eyebrow { font-size:.8rem; letter-spacing:1.8px; margin-bottom:10px; color:var(--tec-blue); font-weight:700; text-transform:uppercase; }
+.steps-nav { justify-content:space-between; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); padding:0; gap:10px; }
+.step-pill { min-width:0; border:1px solid var(--border); background:white; flex-direction:row; gap:10px; padding:12px; font:inherit; text-align:left; }
+.step-dot { width:32px; height:32px; flex-shrink:0; margin:0; font-size:.95rem; }
+.step-label { font-size:.875rem; text-transform:none; letter-spacing:0; text-align:left; }
+.progress-copy { margin-top:12px; font-size:.875rem; color:var(--text-mid); }
+.main { max-width:1000px; padding-top:28px; }
+.card { margin-bottom:20px; padding:24px; min-width:0; }
+.card-title { font-size:1rem; letter-spacing:.4px; text-transform:none; }
+.card p,.field-help { font-size:1rem !important; }
+.field-help { color:var(--text-light); margin:0 0 12px; }
+label { font-size:.95rem; }
+input[type="text"],textarea,select { font-size:1rem; line-height:1.5; }
+textarea { min-height:110px; }
+.strength-item { font:inherit; font-size:.95rem; }
+.strength-item .s-icon { display:block; }
+.ikigai-item,.ikigai-center { background:#f1f5fb; border:1px solid #ccd8ec; padding:20px; }
+.ikigai-item label,.ikigai-center label { color:var(--text-dark) !important; opacity:1; }
+.ikigai-item textarea,.ikigai-center textarea { background:white; color:var(--text-dark); border-color:#94a3b8; }
+.ikigai-item textarea:focus,.ikigai-center textarea:focus { background:white; color:var(--text-dark); border-color:var(--tec-blue); }
+.ikigai-item textarea::placeholder,.ikigai-center textarea::placeholder { color:#586779; }
+.ikigai-tag,.ikigai-center .ikigai-tag { color:var(--tec-blue) !important; font-size:.875rem; opacity:1; letter-spacing:0; }
+.avenida-grid { position:relative; }
+.avenida-option { display:block; position:absolute; width:1px; height:1px; opacity:0; }
+.avenida-option:focus-visible + .avenida-card { outline:3px solid #b45505; outline-offset:3px; }
+.avenida-card { margin:0; }
+.avenida-name { font-size:1rem; }
+.avenida-desc { font-size:.875rem; }
+.avenida-option:checked + .avenida-card .avenida-desc { color:#8b104e; opacity:1; }
+.meta-card-title { font-size:1rem; }
+.meta-card-sub,.smart-word,.step-counter { font-size:.875rem; }
+.smart-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.smart-item { text-align:left; padding:16px; }
+.smart-item:last-child { grid-column:1/-1; }
+.smart-item textarea,.meta-card textarea { font-size:1rem; min-height:100px; }
+.inv-tab,.add-row-btn { font-size:.875rem; min-height:40px; }
+.inventory-tabs { gap:8px; }
+.revision-table { table-layout:fixed; }
+.revision-table th { font-size:.875rem; letter-spacing:0; text-transform:none; overflow-wrap:anywhere; padding:10px; }
+.revision-table td { padding:8px; }
+.revision-table td input[type="text"] { font-size:1rem; min-width:0; }
+.checklist li,.notice { font-size:1rem; }
+.page-footer { font-size:.875rem; line-height:1.7; padding:24px; }
+.footer-note { font-size:.8rem; font-style:normal; }
+.report-toolbar { display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:20px; }
+.report-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+.report-actions label { margin:0; }
+.report-actions select { width:auto; }
+.report-help { margin-bottom:24px; color:var(--text-mid); }
+.report-document-title { margin-bottom:24px; padding-bottom:18px; border-bottom:2px solid var(--tec-blue); }
+.report-document-title h2 { font-size:1.75rem; color:var(--tec-blue); margin-bottom:8px; }
+#report-content .step-section { display:block; animation:none; }
+#report-content .report-answer { background:#f8fafc; border-left:3px solid #c6d4ef; padding:10px 12px; margin:6px 0 12px; white-space:pre-wrap; overflow-wrap:anywhere; min-width:0; color:var(--text-dark); }
+#report-content .pending { color:#596679; font-style:italic; }
+#report-content .ikigai-grid,#report-content .metas-grid,#report-content .smart-grid { grid-template-columns:1fr; }
+#report-content .strengths-grid { display:block; }
+#report-content .strength-item { display:inline-block; margin:4px; }
+#report-content .avenida-grid { display:block; }
+#report-content .avenida-card { display:inline-block; max-width:100%; }
+#report-content .revision-table .report-answer { background:none; border:0; padding:0; margin:0; }
+#report-content .checklist .check-state { width:100px; flex-shrink:0; font-size:.875rem; font-weight:600; }
+#report-content .section-header { margin-top:28px; }
+.summary-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.summary-item { padding:18px; border:1px solid var(--border); border-radius:10px; background:white; }
+.summary-item h3 { font-size:1rem; color:var(--tec-blue); margin-bottom:10px; }
+.about-view { max-width:850px; }
+.about-lead { font-size:1.15rem; color:var(--text-mid); margin:20px 0 28px; }
+.about-view h2 { font-size:1.25rem; margin-bottom:16px; }
+.about-view p + p { margin-top:16px; }
+.credits-list dt { font-weight:700; color:var(--tec-blue); margin-top:16px; }
+.credits-list dd { margin:4px 0 20px; }
+@media (max-width:760px) {
+    .top-bar { gap:14px; padding:16px 20px; }
+    .view-nav { width:100%; }
+    .view-nav button { flex:1; padding:10px 8px; font-size:.875rem; }
+    .utility-bar { padding:12px 20px; }
+    .hero { padding:24px 20px 20px; }
+    .steps-nav { grid-template-columns:1fr; gap:6px; }
+    .step-pill { padding:8px 12px; }
+    .step-dot { width:28px; height:28px; }
+    .step-pill.active .step-dot { transform:none; }
+    .main { padding:24px 16px 36px; }
+    .card { padding:18px; }
+    .card [style*="grid-template-columns"],.ikigai-grid,.metas-grid,.avenida-grid,.retroalimentación-mentor,.smart-grid,.summary-grid { grid-template-columns:1fr !important; }
+    .strengths-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .section-title { font-size:1.4rem; }
+    .section-badge { width:42px; height:42px; }
+    .step-nav { flex-wrap:wrap; gap:12px; }
+    .step-counter { order:3; width:100%; text-align:center; }
+    .revision-table,.revision-table tbody,.revision-table tr,.revision-table td { display:block; width:100%; }
+    .revision-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+    .revision-table tbody tr { border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:12px; }
+    .revision-table td { border:0; padding:6px 0; }
+    .revision-table td::before { content:attr(data-label); display:block; font-size:.875rem; font-weight:600; color:var(--tec-blue); }
+    .revision-table td input[type="text"] { border:1px solid var(--border); padding:8px; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none !important; transition:none !important; } }
+@media print {
+    @page { size:A4; margin:15mm; }
+    body { background:white !important; font-size:10pt; line-height:1.45; }
+    body > :not(#report-view):not(.page-footer) { display:none !important; }
+    #report-view,#report-view[hidden] { display:block !important; max-width:none; margin:0; padding:0; }
+    .no-print { display:none !important; }
+    #report-content { color:#111; }
+    #report-content .card { box-shadow:none; border:0; border-top:1px solid #bbc8df; border-radius:0; padding:12px 0; margin-bottom:14px; break-inside:auto; }
+    #report-content .section-header { margin:18px 0 12px; break-after:avoid; }
+    #report-content .section-title { font-size:16pt; }
+    #report-content h3,#report-content label { break-after:avoid; }
+    #report-content h3 { font-size:12pt; }
+    #report-content label,#report-content p,#report-content .report-answer { font-size:10pt !important; }
+    #report-content .report-answer { background:white; color:#111; border-left:2px solid #8fa7d0; padding:6px 10px; orphans:3; widows:3; }
+    #report-content .ikigai-item,#report-content .ikigai-center,#report-content .meta-card,#report-content .smart-item { display:block; background:white !important; border:0; padding:8px 0; break-inside:auto; }
+    #report-content .summary-grid { display:block; }
+    #report-content .summary-item { border:0; padding:8px 0; }
+    #report-content .revision-table { display:table; width:100%; table-layout:fixed; }
+    #report-content .revision-table thead { display:table-header-group; position:static; width:auto; height:auto; clip-path:none; overflow:visible; }
+    #report-content .revision-table tbody { display:table-row-group; }
+    #report-content .revision-table tr { display:table-row; }
+    #report-content .revision-table td,#report-content .revision-table th { display:table-cell; width:auto; padding:6px; font-size:9pt; border:1px solid #b5bfce; }
+    #report-content .revision-table td::before { display:none; }
+    #report-content .revision-table .report-answer { font-size:9pt !important; }
+    #report-content .report-document-title h2 { font-size:18pt; }
+    .page-footer { display:block !important; break-inside:avoid; font-size:8pt; padding:14px 0 0; }
+    .footer-note { font-size:8pt; }
+}
+.step-section { animation:none; }
+@media (max-width:760px) {
+    .steps-nav { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .step-pill:last-child { grid-column:1/-1; }
+    .step-label { font-size:.85rem; }
+}
+
+    @font-face {font-family:'Plus Jakarta Sans';font-style:normal;font-weight:300;font-display:swap;src:url('../assets/plus-jakarta-sans-300.ttf') format('truetype');}
+@font-face {font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400;font-display:swap;src:url('../assets/plus-jakarta-sans-400.ttf') format('truetype');}
+@font-face {font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500;font-display:swap;src:url('../assets/plus-jakarta-sans-500.ttf') format('truetype');}
+@font-face {font-family:'Plus Jakarta Sans';font-style:normal;font-weight:600;font-display:swap;src:url('../assets/plus-jakarta-sans-600.ttf') format('truetype');}
+@font-face {font-family:'Plus Jakarta Sans';font-style:normal;font-weight:700;font-display:swap;src:url('../assets/plus-jakarta-sans-700.ttf') format('truetype');}
+@font-face {font-family:'Plus Jakarta Sans';font-style:normal;font-weight:800;font-display:swap;src:url('../assets/plus-jakarta-sans-800.ttf') format('truetype');}
+
+/* Identidad visual: tipografía y tarjetas recuperadas de la versión 2. */
+body,button,input,textarea,select { font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif !important; }
+.hero h1,.section-title { font-weight:800; letter-spacing:-.5px; }
+.card-title { font-weight:800; }
+@media screen {
+ .ikigai-love { background:linear-gradient(135deg,#c2185b,#880e4f); }
+ .ikigai-need { background:linear-gradient(135deg,#1565c0,#0d47a1); }
+ .ikigai-good { background:linear-gradient(135deg,#ab3a09,#7c2708); }
+ .ikigai-paid { background:linear-gradient(135deg,#2e7d32,#1b5e20); }
+ .ikigai-center { background:linear-gradient(135deg,#37474f,#263238); }
+ .ikigai-item,.ikigai-center { border:0; }
+ .ikigai-item label,.ikigai-center label,.ikigai-tag,.ikigai-center .ikigai-tag { color:white !important; }
+ .ikigai-item textarea,.ikigai-center textarea { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.6); color:white; }
+ .ikigai-item textarea::placeholder,.ikigai-center textarea::placeholder { color:rgba(255,255,255,.85); }
+ .ikigai-item textarea:focus,.ikigai-center textarea:focus { background:rgba(255,255,255,.2); border-color:white; color:white; }
+ #report-content .ikigai-item .report-label,#report-content .ikigai-center .report-label { color:white; }
+}
+
+
+.about-credits,.about-responses { padding:24px 0; border-top:1px solid var(--border); }
+.about-view { padding-top:36px; }
+.about-view h2 { font-size:1.05rem; color:var(--tec-blue); }
+.restart-options { margin-top:24px; font-size:.9rem; }
+.restart-options summary { cursor:pointer; color:var(--text-mid); }
+.restart-options p { margin:12px 0; }
+.restart-button { background:white; border:1px solid #bba5a2; border-radius:6px; color:#933324; padding:9px 14px; cursor:pointer; }
+.utility-bar { padding-top:8px; padding-bottom:8px; }
+.top-bar { min-height:72px; }
+</style>
+<style>
+textarea { overflow-y:hidden; }
+.input-example { display:block; margin:6px 0 12px; font-size:.875rem; line-height:1.5; color:var(--text-mid); overflow-wrap:anywhere; }
+input.has-example::placeholder { color:transparent; }
+.revision-table input.has-example { border:1px solid #cbd5e1; border-radius:6px; background:#f8fafc; }
+.meta-card { display:flex; flex-direction:column; }
+.meta-card textarea { min-height:180px; }
+@media print { .input-example { display:none; } }
+</style>
+<style>.portal-return{padding:12px 24px;background:#eef3fb;font:14px system-ui,sans-serif}.portal-return a{color:#0033a0;text-decoration:none}.portal-return a:hover{text-decoration:underline}@media print{.portal-return{display:none!important}}</style></head>
+<body><nav class="portal-return" aria-label="Volver a recursos"><a href="../">← A un clic de tu vida profesional</a></nav>
+
+<a class="skip-link" href="#workspace">Saltar al contenido</a>
+<header class="top-bar no-print">
+    <a class="top-bar-logo" href="#plan" onclick="showView('plan')">A un clic de tu <span>vida profesional</span></a>
+    <nav class="view-nav" aria-label="Vistas del recurso">
+        <button type="button" data-view="plan" onclick="showView('plan')" aria-current="page">Mi plan</button>
+        <button type="button" data-view="about" onclick="showView('about')">Acerca de</button>
+    </nav>
+</header>
+<div class="utility-bar no-print">
+    <p id="save-status" role="status" aria-live="polite">Listo para comenzar</p>
+</div>
+<noscript><p class="notice">Activa JavaScript para editar, guardar y consultar tu plan.</p></noscript>
+<!-- HERO -->
+<div class="hero no-print" id="plan-intro">
+    
+    <div class="hero-eyebrow">Orientación Profesional Estudiantil</div>
+    <h1>Plan Estratégico de <span>Vida Profesional</span></h1>
+    <p class="hero-desc">Un camino de 5 pasos para clarificar quién eres, qué sabes hacer y hacia dónde quieres llegar.</p>
+
+    <nav class="steps-nav" aria-label="Pasos del plan">
+        <button type="button" class="step-pill active" onclick="goTo(1)" id="pill-1" aria-controls="step-1"><span class="step-dot step-dot-1">1</span><span class="step-label">¿Quién soy?</span></button>
+        <button type="button" class="step-pill" onclick="goTo(2)" id="pill-2" aria-controls="step-2"><span class="step-dot step-dot-2">2</span><span class="step-label">Mi talento</span></button>
+        <button type="button" class="step-pill" onclick="goTo(3)" id="pill-3" aria-controls="step-3"><span class="step-dot step-dot-3">3</span><span class="step-label">Mi dirección</span></button>
+        <button type="button" class="step-pill" onclick="goTo(4)" id="pill-4" aria-controls="step-4"><span class="step-dot step-dot-4">4</span><span class="step-label">Mis metas</span></button>
+        <button type="button" class="step-pill" onclick="goTo(5)" id="pill-5" aria-controls="step-5"><span class="step-dot step-dot-5">5</span><span class="step-label">Mi seguimiento</span></button>
+    </nav>
+    <p class="progress-copy" id="progress-copy">0 de 5 pasos con respuestas</p>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="main" id="workspace" tabindex="-1">
+
+    <!-- ══════════════════════════════════════════
+         PASO 1: ¿QUIÉN SOY?
+    ══════════════════════════════════════════ -->
+    <div class="step-section visible" id="step-1">
+
+        <div class="section-header">
+            <div class="section-badge badge-1">1</div>
+            <div class="section-title-group">
+                <div class="section-question">Paso 1</div>
+                <h2 class="section-title" tabindex="-1">¿Quién soy?</h2>
+            </div>
+        </div>
+
+        <!-- Datos de identificación -->
+        <div class="card">
+            <h3 class="card-title">Datos personales</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div>
+                    <label>Nombre completo</label>
+                    <input type="text" id="id-nombre" placeholder="Ejemplo: Alejandro Garza Martínez">
+                </div>
+                <div>
+                    <label>Matrícula</label>
+                    <input type="text" id="id-matricula" placeholder="Ejemplo: A01234567">
+                </div>
+                <div>
+                    <label>Carrera</label>
+                    <input type="text" id="id-carrera" placeholder="Ejemplo: Ingeniería Industrial y de Sistemas">
+                </div>
+                <div>
+                    <label>Semestre</label>
+                    <input type="text" id="id-semestre" placeholder="Ejemplo: 7°">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Mi propósito</h3>
+            <label for="proposito">¿Qué huella quiero dejar?</label>
+            <p class="field-help" id="proposito-help">Describe en dos o tres oraciones lo que te importa y el impacto que quieres tener. Tu respuesta puede cambiar con el tiempo.</p>
+            <textarea id="proposito" aria-describedby="proposito-help" placeholder="Quiero contribuir a…"></textarea>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Valores que me definen</h3>
+            <label for="valores">¿Qué valores guían mis decisiones profesionales?</label>
+            <textarea id="valores" placeholder="Elige tres valores y explica cómo se reflejan en tus decisiones."></textarea>
+        </div>
+        <!-- Fortalezas -->
+        <div class="card">
+            <h3 class="card-title">Mis fortalezas</h3>
+            <p style="font-size:.82rem;color:var(--text-light);margin-bottom:12px;">Selecciona las fortalezas que mejor te describen (puedes marcar varias):</p>
+            <div class="strengths-grid" id="strengths-grid">
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">🎯</div>Enfoque</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">💡</div>Creatividad</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">📊</div>Capacidad de análisis</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">🤝</div>Colaboración</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">🗣️</div>Comunicación</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">🏃</div>Proactividad</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">📐</div>Organización</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">⚡</div>Resiliencia</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">🌐</div>Visión global</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">🔬</div>Investigación</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">👥</div>Liderazgo</div>
+                <div class="strength-item" onclick="toggleStrength(this)"><div class="s-icon">✏️</div>Otra…</div>
+            </div>
+            <div style="margin-top:14px;">
+                <label>¿Quieres agregar alguna fortaleza adicional?</label>
+                <input type="text" id="fortaleza-extra" placeholder="Escribe aquí…">
+            </div>
+        </div>
+
+        <!-- IKIGAI -->
+        <div class="card">
+            <h3 class="card-title">Mi propósito profesional</h3>
+            <p style="font-size:.82rem;color:var(--text-light);margin-bottom:16px;">Usa estas cuatro preguntas como guía para explorar tu propósito profesional:</p>
+            <div class="ikigai-grid">
+                <div class="ikigai-item ikigai-love">
+                    <span class="ikigai-tag">❤️ Lo que amas</span>
+                    <label>¿Qué actividades te apasionan y te hacen perder la noción del tiempo?</label>
+                    <textarea id="ikigai-love" placeholder="Ejemplo: diseñar soluciones, compartir conocimientos, construir cosas, explorar datos…"></textarea>
+                </div>
+                <div class="ikigai-item ikigai-need">
+                    <span class="ikigai-tag">🌍 Lo que el mundo necesita</span>
+                    <label>¿Qué problemas del mundo o de tu comunidad te mueven a actuar?</label>
+                    <textarea id="ikigai-need" placeholder="Ejemplo: sostenibilidad, acceso a educación, salud pública, eficiencia industrial…"></textarea>
+                </div>
+                <div class="ikigai-item ikigai-good">
+                    <span class="ikigai-tag">⭐ En qué destacas</span>
+                    <label>¿Qué habilidades o conocimientos dominas mejor que la mayoría?</label>
+                    <textarea id="ikigai-good" placeholder="Ejemplo: análisis de datos, programación, relaciones interpersonales, diseño…"></textarea>
+                </div>
+                <div class="ikigai-item ikigai-paid">
+                    <span class="ikigai-tag">💰 Por lo que te pueden pagar</span>
+                    <label>¿Por qué habilidades o servicios el mercado está dispuesto a pagar?</label>
+                    <textarea id="ikigai-paid" placeholder="Ejemplo: consultoría, ingeniería de procesos, desarrollo de software, investigación…"></textarea>
+                </div>
+                <div class="ikigai-center">
+                    <span class="ikigai-tag" style="color:rgba(255,255,255,.7);">✨ Mi IKIGAI</span>
+                    <label style="color:white;">Con base en las 4 dimensiones, ¿cuál es tu razón de ser profesional?</label>
+                    <textarea id="ikigai-center" style="min-height:70px;" placeholder="Ejemplo: Aplicar ingeniería de datos para optimizar cadenas de suministro en industrias que impactan millones de vidas…"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="step-nav no-print">
+            <button class="nav-btn nav-btn-prev" disabled>← Anterior</button>
+            <span class="step-counter">Paso 1 de 5</span>
+            <button class="nav-btn nav-btn-next" onclick="goTo(2)">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         PASO 2: ¿CUÁL ES MI TALENTO?
+    ══════════════════════════════════════════ -->
+    <div class="step-section" id="step-2">
+
+        <div class="section-header">
+            <div class="section-badge badge-2">2</div>
+            <div class="section-title-group">
+                <div class="section-question">Paso 2</div>
+                <h2 class="section-title" tabindex="-1">Mi talento</h2>
+            </div>
+        </div>
+
+        <div class="notice">
+            💡 Inventaria TODO lo que has hecho y aprendido. Cada elemento suma a tu perfil diferenciador.
+        </div>
+
+        <!-- Trayectoria tabs -->
+        <div class="card">
+            <h3 class="card-title">Mi trayectoria</h3>
+            <div class="inventory-tabs">
+                <div class="inv-tab active" onclick="switchTab(this,'tab-formativas')">🎓 Act. Formativas (LiFE)</div>
+                <div class="inv-tab" onclick="switchTab(this,'tab-practicas')">💼 Prácticas / Empleos</div>
+                <div class="inv-tab" onclick="switchTab(this,'tab-concursos')">🏆 Concursos</div>
+                <div class="inv-tab" onclick="switchTab(this,'tab-emprend')">🚀 Emprendimientos</div>
+            </div>
+
+            <div class="inv-panel visible" id="tab-formativas">
+                <table class="revision-table" id="tbl-formativas">
+                    <thead><tr><th>Actividad / Organización</th><th>Rol</th><th>Periodo</th><th>Logro destacado</th></tr></thead>
+                    <tbody>
+                        <tr><td><input type="text" placeholder="Ejemplo: Sociedad estudiantil"></td><td><input type="text" placeholder="Ejemplo: VP Finanzas"></td><td><input type="text" placeholder="2024 a la fecha"></td><td><input type="text" placeholder="Ejemplo: +15% retorno presupuesto"></td></tr>
+                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                    </tbody>
+                </table>
+                <button class="add-row-btn" onclick="addRow('tbl-formativas',4)">+ Agregar fila</button>
+            </div>
+
+            <div class="inv-panel" id="tab-practicas">
+                <table class="revision-table" id="tbl-practicas">
+                    <thead><tr><th>Empresa</th><th>Puesto</th><th>Periodo</th><th>Logro cuantificado</th></tr></thead>
+                    <tbody>
+                        <tr><td><input type="text" placeholder="Ejemplo: Amazon Logistics"></td><td><input type="text" placeholder="Ejemplo: Analista de Ops"></td><td><input type="text" placeholder="Enero de 2025 a la fecha"></td><td><input type="text" placeholder="Ejemplo: Reduje los tiempos de tránsito un 12 %"></td></tr>
+                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                    </tbody>
+                </table>
+                <button class="add-row-btn" onclick="addRow('tbl-practicas',4)">+ Agregar fila</button>
+            </div>
+
+            <div class="inv-panel" id="tab-concursos">
+                <table class="revision-table" id="tbl-concursos">
+                    <thead><tr><th>Concurso / Hackathon</th><th>Organización</th><th>Año</th><th>Resultado</th></tr></thead>
+                    <tbody>
+                        <tr><td><input type="text" placeholder="Ejemplo: Talent Land"></td><td><input type="text" placeholder="Ejemplo: Jalisco Gov"></td><td><input type="text" placeholder="2024"></td><td><input type="text" placeholder="Ejemplo: 2° lugar nacional"></td></tr>
+                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                    </tbody>
+                </table>
+                <button class="add-row-btn" onclick="addRow('tbl-concursos',4)">+ Agregar fila</button>
+            </div>
+
+            <div class="inv-panel" id="tab-emprend">
+                <table class="revision-table" id="tbl-emprend">
+                    <thead><tr><th>Proyecto / Empresa</th><th>Tu rol</th><th>Periodo</th><th>Tracción / Impacto</th></tr></thead>
+                    <tbody>
+                        <tr><td><input type="text" placeholder="Ejemplo: App de delivery local"></td><td><input type="text" placeholder="Ejemplo: Cofundación"></td><td><input type="text" placeholder="2023 a 2024"></td><td><input type="text" placeholder="Ejemplo: 500 personas usuarias en 3 meses"></td></tr>
+                        <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                    </tbody>
+                </table>
+                <button class="add-row-btn" onclick="addRow('tbl-emprend',4)">+ Agregar fila</button>
+            </div>
+        </div>
+
+        <!-- Habilidades -->
+        <div class="card">
+            <h3 class="card-title">Mis habilidades</h3>
+
+            <label>Idiomas</label>
+            <table class="revision-table" id="tbl-idiomas">
+                <thead><tr><th>Idioma</th><th>Nivel (A1 a C2)</th><th>Certificación / Examen</th><th>Puntaje</th></tr></thead>
+                <tbody>
+                    <tr><td><input type="text" placeholder="Inglés"></td><td><input type="text" placeholder="C1"></td><td><input type="text" placeholder="TOEFL ITP"></td><td><input type="text" placeholder="620"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+            <button class="add-row-btn" onclick="addRow('tbl-idiomas',4)" style="margin-bottom:16px;">+ Agregar idioma</button>
+
+            <label>Certificaciones y cursos</label>
+            <table class="revision-table" id="tbl-certs">
+                <thead><tr><th>Certificación / Curso</th><th>Institución</th><th>Fecha</th></tr></thead>
+                <tbody>
+                    <tr><td><input type="text" placeholder="Ejemplo: Six Sigma Green Belt"></td><td><input type="text" placeholder="Ejemplo: Tec de Monterrey"></td><td><input type="text" placeholder="Mes / año"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+            <button class="add-row-btn" onclick="addRow('tbl-certs',3)" style="margin-bottom:16px;">+ Agregar certificación</button>
+
+            <label>Programas internacionales</label>
+            <table class="revision-table" id="tbl-intl">
+                <thead><tr><th>Universidad / Programa</th><th>País</th><th>Periodo</th><th>Tipo</th></tr></thead>
+                <tbody>
+                    <tr><td><input type="text" placeholder="Ejemplo: TU Munich"></td><td><input type="text" placeholder="Alemania"></td><td><input type="text" placeholder="Ago a Dic 2024"></td><td><input type="text" placeholder="Intercambio"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+            <button class="add-row-btn" onclick="addRow('tbl-intl',4)">+ Agregar programa</button>
+
+            <div style="margin-top:18px;">
+                <label>Software y herramientas técnicas</label>
+                <input type="text" id="software-skills" placeholder="Ejemplo: Python, SQL, Power BI, Excel Avanzado, AutoCAD, RStudio…">
+                <label>Habilidades blandas destacadas</label>
+                <input type="text" id="soft-skills" placeholder="Ejemplo: Liderazgo, pensamiento crítico, resolución de problemas complejos…">
+            </div>
+        </div>
+
+        <div class="step-nav no-print">
+            <button class="nav-btn nav-btn-prev" onclick="goTo(1)">← Anterior</button>
+            <span class="step-counter">Paso 2 de 5</span>
+            <button class="nav-btn nav-btn-next" onclick="goTo(3)">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         PASO 3: ¿HACIA DÓNDE ME DIRIJO?
+    ══════════════════════════════════════════ -->
+    <div class="step-section" id="step-3">
+
+        <div class="section-header">
+            <div class="section-badge badge-3">3</div>
+            <div class="section-title-group">
+                <div class="section-question">Paso 3</div>
+                <h2 class="section-title" tabindex="-1">¿Hacia dónde me dirijo?</h2>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Mi avenida profesional</h3>
+            <p style="font-size:.82rem;color:var(--text-light);margin-bottom:14px;">Selecciona la avenida principal que se alinea con tu propósito e IKIGAI:</p>
+            <div class="avenida-grid">
+                <input type="radio" name="avenida" id="av1" class="avenida-option">
+                <label class="avenida-card" for="av1">
+                    <div class="avenida-icon">💼</div>
+                    <div class="avenida-name">Empleabilidad</div>
+                    <div class="avenida-desc">Carrera profesional en empresa nacional</div>
+                </label>
+
+                <input type="radio" name="avenida" id="av2" class="avenida-option">
+                <label class="avenida-card" for="av2">
+                    <div class="avenida-icon">✈️</div>
+                    <div class="avenida-name">Empleabilidad internacional</div>
+                    <div class="avenida-desc">Carrera en empresa o país extranjero</div>
+                </label>
+
+                <input type="radio" name="avenida" id="av3" class="avenida-option">
+                <label class="avenida-card" for="av3">
+                    <div class="avenida-icon">🚀</div>
+                    <div class="avenida-name">Emprendimiento</div>
+                    <div class="avenida-desc">Crear y escalar tu propia empresa</div>
+                </label>
+
+                <input type="radio" name="avenida" id="av4" class="avenida-option">
+                <label class="avenida-card" for="av4">
+                    <div class="avenida-icon">🏢</div>
+                    <div class="avenida-name">Empresa familiar</div>
+                    <div class="avenida-desc">Incorporarte o liderar el negocio familiar</div>
+                </label>
+
+                <input type="radio" name="avenida" id="av5" class="avenida-option">
+                <label class="avenida-card" for="av5">
+                    <div class="avenida-icon">🎓</div>
+                    <div class="avenida-name">Posgrado</div>
+                    <div class="avenida-desc">Maestría, MBA o especialización</div>
+                </label>
+
+                <input type="radio" name="avenida" id="av6" class="avenida-option">
+                <label class="avenida-card" for="av6">
+                    <div class="avenida-icon">🔬</div>
+                    <div class="avenida-name">Investigación</div>
+                    <div class="avenida-desc">Doctorado o carrera académica</div>
+                </label>
+
+                <input type="radio" name="avenida" id="av8" class="avenida-option">
+                <label class="avenida-card" for="av8">
+                    <div class="avenida-icon" aria-hidden="true">💻</div>
+                    <div class="avenida-name">Freelance</div>
+                    <div class="avenida-desc">Trabajo independiente por proyectos o servicios</div>
+                </label>
+
+                <input type="radio" name="avenida" id="av7" class="avenida-option">
+                <label class="avenida-card" for="av7" >
+                    <div class="avenida-icon">💚</div>
+                    <div class="avenida-name">Altruismo / Impacto Social</div>
+                    <div class="avenida-desc">OSC, gobierno, sector social</div>
+                </label>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Mi elección</h3>
+            <label>¿Por qué elegiste esta avenida? ¿Cómo conecta con tu IKIGAI y propósito de vida?</label>
+            <textarea id="avenida-justif" style="min-height:90px;" placeholder="Explica en 3 a 5 oraciones la relación entre tu avenida elegida, tus fortalezas y el impacto que quieres generar…"></textarea>
+            <label>¿Cuál sería un Plan B si esta avenida cambia?</label>
+            <input type="text" id="plan-b" placeholder="Ejemplo: Si no consigo trabajo internacional, exploraré empresas multinacionales con base en México…">
+        </div>
+
+        <div class="step-nav no-print">
+            <button class="nav-btn nav-btn-prev" onclick="goTo(2)">← Anterior</button>
+            <span class="step-counter">Paso 3 de 5</span>
+            <button class="nav-btn nav-btn-next" onclick="goTo(4)">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         PASO 4: ¿QUÉ QUIERO LOGRAR?
+    ══════════════════════════════════════════ -->
+    <div class="step-section" id="step-4">
+
+        <div class="section-header">
+            <div class="section-badge badge-4">4</div>
+            <div class="section-title-group">
+                <div class="section-question">Paso 4</div>
+                <h2 class="section-title" tabindex="-1">Mis metas</h2>
+            </div>
+        </div>
+
+        <!-- Metas por plazo -->
+        <div class="card">
+            <h3 class="card-title">Mis metas</h3>
+            <div class="metas-grid">
+                <div class="meta-card meta-card-cp">
+                    <div class="meta-card-title">🟢 Corto plazo</div>
+                    <div class="meta-card-sub">Al graduarte</div>
+                    <label style="margin-top:8px;">¿Qué quieres lograr al graduarte?</label>
+                    <textarea id="meta-cp" placeholder="Ejemplo: Incorporarme como analista de operaciones en una empresa de manufactura en el área metropolitana de MTY con sueldo base de $X…"></textarea>
+                </div>
+                <div class="meta-card meta-card-mp">
+                    <div class="meta-card-title">🔵 Mediano plazo</div>
+                    <div class="meta-card-sub">5 años después de graduarte</div>
+                    <label style="margin-top:8px;">¿Dónde quieres estar en 5 años?</label>
+                    <textarea id="meta-mp" placeholder="Ejemplo: Liderar un equipo de mejora continua en una planta de clase mundial, con al menos 1 certificación internacional y haber participado en un proyecto de expansión…"></textarea>
+                </div>
+                <div class="meta-card meta-card-lp">
+                    <div class="meta-card-title">🟣 Largo plazo</div>
+                    <div class="meta-card-sub">10 a 15 años</div>
+                    <label style="margin-top:8px;">¿Cuál es tu visión a largo plazo?</label>
+                    <textarea id="meta-lp" placeholder="Ejemplo: Dirigir las operaciones de una empresa multinacional o fundar una consultoría especializada en transformación industrial…"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- SMART -->
+        <div class="card">
+            <h3 class="card-title">Mi meta SMART</h3>
+            <p style="font-size:.82rem;color:var(--text-light);margin-bottom:4px;">Toma tu meta más importante (corto plazo) y verifica que cumpla cada criterio:</p>
+            <div class="smart-grid">
+                <div class="smart-item">
+                    <div class="smart-letter">S</div>
+                    <div class="smart-word">Específica</div>
+                    <textarea id="smart-s" placeholder="¿Qué exactamente quiero lograr? ¿Quién, qué, dónde?"></textarea>
+                </div>
+                <div class="smart-item">
+                    <div class="smart-letter">M</div>
+                    <div class="smart-word">Medible</div>
+                    <textarea id="smart-m" placeholder="¿Cómo sabré que lo logré? ¿Qué indicador o número?"></textarea>
+                </div>
+                <div class="smart-item">
+                    <div class="smart-letter">A</div>
+                    <div class="smart-word">Alcanzable</div>
+                    <textarea id="smart-a" placeholder="¿Es realista con mis recursos y habilidades actuales?"></textarea>
+                </div>
+                <div class="smart-item">
+                    <div class="smart-letter">R</div>
+                    <div class="smart-word">Relevante</div>
+                    <textarea id="smart-r" placeholder="¿Por qué es importante para mi propósito e IKIGAI?"></textarea>
+                </div>
+                <div class="smart-item">
+                    <div class="smart-letter">T</div>
+                    <div class="smart-word">Temporal</div>
+                    <textarea id="smart-t" placeholder="¿Cuál es la fecha límite exacta para lograrlo?"></textarea>
+                </div>
+            </div>
+            <div style="margin-top:16px;">
+                <label>Meta SMART redactada (síntesis):</label>
+                <textarea id="meta-smart-final" style="min-height:70px;" placeholder="Para [fecha exacta], habré [logro específico y medible] porque [relevancia]. Lo lograré mediante [acciones concretas]."></textarea>
+            </div>
+        </div>
+
+        <!-- Pasos de acción -->
+        <div class="card">
+            <h3 class="card-title">Mis próximas acciones</h3>
+            <table class="revision-table" id="tbl-acciones">
+                <thead><tr><th>Acción concreta</th><th>Responsable</th><th>Recurso necesario</th><th>Fecha límite</th></tr></thead>
+                <tbody>
+                    <tr><td><input type="text" placeholder="Ejemplo: Actualizar CV y perfil de LinkedIn"></td><td><input type="text" placeholder="Yo"></td><td><input type="text" placeholder="Plantilla CVDP"></td><td><input type="text" placeholder="Fecha objetivo"></td></tr>
+                    <tr><td><input type="text" placeholder="Ejemplo: Aplicar a 5 ofertas de trabajo por semana"></td><td><input type="text" placeholder="Yo"></td><td><input type="text" placeholder="LinkedIn, Indeed"></td><td><input type="text" placeholder="Cada semana"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+            <button class="add-row-btn" onclick="addRow('tbl-acciones',4)">+ Agregar acción</button>
+        </div>
+
+        <div class="step-nav no-print">
+            <button class="nav-btn nav-btn-prev" onclick="goTo(3)">← Anterior</button>
+            <span class="step-counter">Paso 4 de 5</span>
+            <button class="nav-btn nav-btn-next" onclick="goTo(5)">Siguiente →</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         PASO 5: ¿VOY BIEN?
+    ══════════════════════════════════════════ -->
+    <div class="step-section" id="step-5">
+
+        <div class="section-header">
+            <div class="section-badge badge-5">5</div>
+            <div class="section-title-group">
+                <div class="section-question">Paso 5</div>
+                <h2 class="section-title" tabindex="-1">Mi seguimiento</h2>
+            </div>
+        </div>
+
+        <div class="notice">
+            🌟 Tu plan es tuyo y es tu decisión. Sin embargo, buscar retroalimentación de personas con experiencia similar enriquece tu perspectiva y te ayuda a detectar puntos ciegos.
+        </div>
+
+        <!-- Mentores -->
+        <div class="card">
+            <h3 class="card-title">Mi red de orientación</h3>
+            <p style="font-size:.82rem;color:var(--text-light);margin-bottom:14px;">Identifica 2 a 3 personas que hayan recorrido un camino similar al tuyo y que puedan darte retroalimentación honesta:</p>
+            <table class="revision-table" id="tbl-mentores">
+                <thead><tr><th>Nombre</th><th>Relación / Contexto</th><th>Área de experiencia</th><th>¿Hubo contacto?</th></tr></thead>
+                <tbody>
+                    <tr><td><input type="text" placeholder="Ejemplo: Ing. Martínez"></td><td><input type="text" placeholder="Ejemplo: Docencia, trabajo"></td><td><input type="text" placeholder="Ejemplo: Cadena de suministro"></td><td><input type="text" placeholder="Sí / No"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top:16px;">
+                <label>¿Qué preguntas específicas les harás? (prepara tu sesión)</label>
+                <textarea id="preguntas-mentor" style="min-height:80px;" placeholder="Ejemplo: ¿Cuáles habilidades le recomendarías desarrollar a alguien que quiere entrar al área de operaciones? ¿Qué haría diferente en sus primeros 2 años?…"></textarea>
+            </div>
+            <div style="margin-top:10px;">
+                <label>Principales aprendizajes tras las sesiones de retroalimentación:</label>
+                <textarea id="aprendizajes-mentor" style="min-height:80px;" placeholder="Documenta aquí los aprendizajes más valiosos que recibiste…"></textarea>
+            </div>
+        </div>
+
+        <!-- Checklist de validación -->
+        <div class="card">
+            <h3 class="card-title">Revisión de mi plan</h3>
+            <ul class="checklist">
+                <li><input type="checkbox" id="chk1"><label for="chk1" style="margin:0;font-weight:400;color:var(--text-mid);">Mi propósito de vida es claro y puedo explicarlo en 30 segundos.</label></li>
+                <li><input type="checkbox" id="chk2"><label for="chk2" style="margin:0;font-weight:400;color:var(--text-mid);">Mi IKIGAI conecta lo que amo con mis habilidades y las necesidades del mercado.</label></li>
+                <li><input type="checkbox" id="chk3"><label for="chk3" style="margin:0;font-weight:400;color:var(--text-mid);">Tengo inventariada mi trayectoria con logros cuantificados.</label></li>
+                <li><input type="checkbox" id="chk4"><label for="chk4" style="margin:0;font-weight:400;color:var(--text-mid);">Mi avenida de desarrollo profesional está definida y justificada.</label></li>
+                <li><input type="checkbox" id="chk5"><label for="chk5" style="margin:0;font-weight:400;color:var(--text-mid);">Mis metas a corto, mediano y largo plazo están redactadas en formato SMART.</label></li>
+                <li><input type="checkbox" id="chk6"><label for="chk6" style="margin:0;font-weight:400;color:var(--text-mid);">Tengo un plan de acción con fechas concretas para los próximos 90 días.</label></li>
+                <li><input type="checkbox" id="chk7"><label for="chk7" style="margin:0;font-weight:400;color:var(--text-mid);">He identificado al menos 2 personas con experiencia en mi área para solicitar retroalimentación.</label></li>
+                <li><input type="checkbox" id="chk8"><label for="chk8" style="margin:0;font-weight:400;color:var(--text-mid);">He programado una revisión periódica de mi plan (al menos semestral).</label></li>
+            </ul>
+        </div>
+
+        <!-- Revisiones periódicas -->
+        <div class="card">
+            <h3 class="card-title">Seguimiento de mi plan</h3>
+            <p style="font-size:.82rem;color:var(--text-light);margin-bottom:14px;">Agenda revisiones regulares. Registra los ajustes que hagas al plan con el tiempo:</p>
+            <table class="revision-table" id="tbl-revisiones">
+                <thead><tr><th>Fecha de revisión</th><th>¿Qué avancé?</th><th>¿Qué ajusto?</th><th>Próxima revisión</th></tr></thead>
+                <tbody>
+                    <tr><td><input type="text" placeholder="Fecha de revisión"></td><td><input type="text" placeholder="Ejemplo: Conseguí primer empleo"></td><td><input type="text" placeholder="Ejemplo: Actualizar meta mediano plazo"></td><td><input type="text" placeholder="Próxima fecha"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                    <tr><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td><td><input type="text"></td></tr>
+                </tbody>
+            </table>
+            <button class="add-row-btn" onclick="addRow('tbl-revisiones',4)">+ Agregar revisión</button>
+
+            <div style="margin-top:18px;">
+                <label>Reflexión final: ¿Qué compromisos adquieres para tu desarrollo profesional hoy?</label>
+                <textarea id="compromiso-final" style="min-height:90px;" placeholder="Escribe un párrafo de compromiso personal. Este es el cierre de tu plan estratégico…"></textarea>
+            </div>
+        </div>
+
+        <div class="card download-card no-print" style="background:var(--tec-blue);color:white;text-align:center;border:none;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:8px;letter-spacing:-.3px;">Mi siguiente paso</div>
+            <p style="font-size:.9rem;opacity:.85;margin-bottom:18px;">Conserva una copia de tu plan. En la ventana de impresión, elige «Guardar como PDF».</p>
+            <button class="btn-top btn-save" style="display:inline-block;padding:10px 28px;font-size:.9rem;" onclick="imprimirPlan()">Descargar mi plan</button>
+        </div>
+
+        <div class="step-nav no-print">
+            <button class="nav-btn nav-btn-prev" onclick="goTo(4)">← Anterior</button>
+            <span class="step-counter">Paso 5 de 5</span>
+
+        </div>
+    </div>
+
+</main><!-- /main -->
+
+<section id="report-view" class="main" hidden aria-label="Plan para descargar">
+    <article id="report-content"></article>
+</section>
+<section id="about-view" class="main about-view" hidden aria-labelledby="about-title">
+    <h1 id="about-title" tabindex="-1">Acerca de</h1>
+    <p class="about-lead">Esta herramienta apoya la reflexión y la elaboración del Plan Estratégico de Vida Profesional en el curso «A un clic de tu vida profesional». Su propósito es ayudarte a reconocer tus fortalezas, definir metas y organizar tus próximos pasos.</p>
+    <div class="about-credits">
+        <h2>Créditos</h2>
+        <p><strong>Instrumento original:</strong> Centro de Vinculación y Desarrollo Profesional del Tecnológico de Monterrey.</p>
+        <p><strong>Diseño de la experiencia formativa:</strong> Equipo de diseño de la Semana Tec «A un clic de tu vida profesional».</p>
+        <p><strong>Adaptación digital:</strong> Impulsada y desarrollada por Karen Ariadna Guzmán Vega, ME., como apoyo a su práctica docente en el curso.</p>
+        <p>La reproducción, adaptación y distribución de los contenidos y del software están sujetas a los derechos y autorizaciones aplicables. Esta página no otorga una licencia de reutilización.</p>
+    </div>
+    <div class="about-responses">
+        <h2>Tus respuestas</h2>
+        <p>Tu avance se guarda en este navegador cuando el almacenamiento está disponible. No se envía a un servidor ni se sincroniza entre dispositivos.</p>
+        <p>Si borras los datos del navegador o cambias de dispositivo o dirección web, tu avance no estará disponible. Al finalizar, puedes descargar tu plan en PDF.</p>
+        <details class="restart-options">
+            <summary>Empezar de nuevo</summary>
+            <p>Se borrarán las respuestas guardadas en este navegador.</p>
+            <button class="restart-button" type="button" onclick="resetData()">Borrar mis respuestas</button>
+        </details>
+    </div>
+</section>
+<footer class="page-footer">
+    <p><strong>Instrumento original:</strong> CVDP, Tecnológico de Monterrey.</p>
+    <a class="no-print" href="#about" onclick="showView('about')">Acerca de</a>
+</footer>
+<script>
+'use strict';
+const STORAGE_KEY = 'plan_vida_profesional_cvdp_v3';
+const tables = ['tbl-formativas','tbl-practicas','tbl-concursos','tbl-emprend','tbl-idiomas','tbl-certs','tbl-intl','tbl-acciones','tbl-mentores','tbl-revisiones'];
+const workspace = document.getElementById('workspace');
+const tableExamples=Object.fromEntries(tables.map(id=>[id,Array.from(document.querySelectorAll('#'+id+' tbody tr:first-child input'),el=>el.placeholder)]));
+const tableMinimum = Object.fromEntries(tables.map(id => [id,document.querySelector('#'+id+' tbody').rows.length]));
+let currentStep = 1;
+let currentView = 'plan';
+let saveTimer;
+function status(message,error=false) {
+    const node=document.getElementById('save-status');
+    node.textContent=message;
+    node.dataset.state=error?'error':'ok';
+}
+function upgradeButtons(selector,pressed=false) {
+    workspace.querySelectorAll(selector).forEach(old=>{
+        const button=document.createElement('button');
+        for(const attr of old.attributes) button.setAttribute(attr.name,attr.value);
+        button.type='button';
+        while(old.firstChild) button.appendChild(old.firstChild);
+        if(pressed) button.setAttribute('aria-pressed','false');
+        old.replaceWith(button);
+    });
+}
+function labelTable(id) {
+    const table=document.getElementById(id);
+    const headers=Array.from(table.querySelectorAll('thead th'),th=>th.textContent.trim());
+    table.querySelectorAll('thead th').forEach(th=>th.scope='col');
+    table.querySelectorAll('tbody tr').forEach((row,ri)=>{
+        row.querySelectorAll('td').forEach((td,ci)=>{
+            td.dataset.label=headers[ci];
+            const input=td.querySelector('input');
+            if(input) input.setAttribute('aria-label',headers[ci]+', fila '+(ri+1));
+        });
+    });
+}
+function configureAccessibility() {
+    upgradeButtons('.strength-item',true);
+    upgradeButtons('.inv-tab',true);
+    workspace.querySelectorAll('label:not([for])').forEach(label=>{
+        const next=label.nextElementSibling;
+        if(next?.matches('input[id],textarea[id],select[id]')) label.htmlFor=next.id;
+    });
+    workspace.querySelectorAll('input[type="text"][id],textarea[id]').forEach(el=>{
+        if(el.labels.length) return;
+        const group=el.closest('.smart-item,.meta-card,.card');
+        const heading=group?.querySelector('.smart-word,.meta-card-title,.card-title');
+        el.setAttribute('aria-label',heading?.textContent.trim() || el.placeholder || 'Respuesta');
+    });
+    workspace.querySelectorAll('button').forEach(el=>el.type='button');
+    tables.forEach(labelTable);
+    workspace.querySelectorAll('.inv-panel').forEach(panel=>{
+        const tab=Array.from(workspace.querySelectorAll('.inv-tab')).find(t=>t.getAttribute('onclick').includes(panel.id));
+        tab.setAttribute('aria-controls',panel.id);
+        tab.setAttribute('aria-pressed',String(panel.classList.contains('visible')));
+        const title=document.createElement('h4');
+        title.className='inventory-panel-title';
+        title.textContent=tab.textContent.trim();
+        title.hidden=true;
+        panel.prepend(title);
+    });
+}
+function fitFields() {
+    workspace.querySelectorAll('textarea').forEach(field=>{
+        if(!field.getClientRects().length) return;
+        const copy=field.cloneNode(false);
+        copy.removeAttribute('id'); copy.removeAttribute('name');
+        copy.setAttribute('aria-hidden','true'); copy.tabIndex=-1;
+        copy.style.cssText=field.style.cssText+';position:fixed;left:-10000px;top:0;visibility:hidden;height:0;min-height:0;width:'+field.getBoundingClientRect().width+'px;';
+        copy.value=field.value||field.placeholder;
+        field.parentElement.append(copy);
+        const border=parseFloat(getComputedStyle(copy).borderTopWidth)+parseFloat(getComputedStyle(copy).borderBottomWidth);
+        field.style.height=Math.ceil(copy.scrollHeight+border+4)+'px';copy.remove();
+    });
+    workspace.querySelectorAll('input[type="text"][placeholder]').forEach((field,i)=>{
+        if(!field.placeholder||field.nextElementSibling?.classList.contains('input-example')) return;
+        const hint=document.createElement('small');hint.className='input-example';hint.id='example-'+i;
+        hint.textContent=field.placeholder;field.after(hint);field.classList.add('has-example');
+        field.setAttribute('aria-describedby',hint.id);
+    });
+}
+let fitFrame;
+function scheduleFit(){cancelAnimationFrame(fitFrame);fitFrame=requestAnimationFrame(fitFields);}
+function goTo(step,focus=true) {
+    scheduleFit();
+    if(!Number.isInteger(step)||step<1||step>5) return;
+    currentStep=step;
+    for(let i=1;i<=5;i++) {
+        document.getElementById('step-'+i).classList.toggle('visible',i===step);
+        const pill=document.getElementById('pill-'+i);
+        pill.classList.toggle('active',i===step);
+        if(i===step) pill.setAttribute('aria-current','step'); else pill.removeAttribute('aria-current');
+    }
+    if(currentView!=='plan') showView('plan',false);
+    if(focus) {
+        document.querySelector('#step-'+step+' h2').focus({preventScroll:true});
+        workspace.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+        saveAll();
+    }
+}
+function showView(view,focus=true) {
+    scheduleFit();
+    if(!['plan','about'].includes(view)) view='plan';
+    currentView=view;
+    workspace.hidden=view!=='plan';
+    document.getElementById('plan-intro').hidden=view!=='plan';
+    document.getElementById('about-view').hidden=view!=='about';
+    document.querySelectorAll('[data-view]').forEach(button=>{
+        if(button.dataset.view===view) button.setAttribute('aria-current','page'); else button.removeAttribute('aria-current');
+    });
+    if(location.hash!=='#'+view) history.replaceState(null,'','#'+view);
+    if(focus) {
+        const target=view==='plan'?document.querySelector('#step-'+currentStep+' h2'):document.getElementById(view+'-title');
+        target.focus({preventScroll:true});
+        window.scrollTo({top:0,behavior:'instant'});
+    }
+}
+function toggleStrength(el) {
+    el.classList.toggle('selected');
+    el.setAttribute('aria-pressed',String(el.classList.contains('selected')));
+    saveAll();
+}
+function switchTab(tab,panelId) {
+    scheduleFit();
+    workspace.querySelectorAll('.inv-tab').forEach(t=>{t.classList.toggle('active',t===tab);t.setAttribute('aria-pressed',String(t===tab));});
+    workspace.querySelectorAll('.inv-panel').forEach(p=>p.classList.toggle('visible',p.id===panelId));
+}
+function addRow(tableId,cols,persist=true) {
+    if(!tables.includes(tableId)) return;
+    const tbody=document.querySelector('#'+tableId+' tbody');
+    const tr=document.createElement('tr');
+    for(let i=0;i<cols;i++) {const td=tr.insertCell(); const input=document.createElement('input'); input.type='text'; td.append(input);}
+    tbody.append(tr); labelTable(tableId);
+    if(persist) {tr.querySelector('input').focus(); saveAll();}
+}
+function collectData() {
+    const data={};
+    workspace.querySelectorAll('textarea[id],input[type="text"][id]').forEach(el=>data[el.id]=el.value);
+    data.avenida=workspace.querySelector('input[name="avenida"]:checked')?.id||'';
+    workspace.querySelectorAll('input[type="checkbox"][id]').forEach(el=>data[el.id]=el.checked);
+    data.strengths=Array.from(workspace.querySelectorAll('.strength-item.selected'),el=>el.textContent.trim());
+    tables.forEach(id=>data[id]=Array.from(document.querySelectorAll('#'+id+' tbody tr'),row=>Array.from(row.querySelectorAll('input'),el=>el.value)));
+    data.currentStep=currentStep;
+    return data;
+}
+function updateProgress() {
+    let started=0;
+    for(let i=1;i<=5;i++) {
+        const section=document.getElementById('step-'+i);
+        const answered=Array.from(section.querySelectorAll('input,textarea')).some(el=>['checkbox','radio'].includes(el.type)?el.checked:el.value.trim())||!!section.querySelector('.strength-item.selected');
+        if(answered) started++;
+    }
+    document.getElementById('progress-copy').textContent=started+' de 5 pasos con respuestas · Puedes completarlos en el orden que prefieras.';
+}
+function saveAll() {
+    clearTimeout(saveTimer); saveTimer=null; updateProgress();
+    try {
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(collectData()));
+        status('Guardado en este navegador · '+new Date().toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'}));
+    } catch {status('No se pudo guardar tu avance. Descarga tu plan antes de cerrar la página.',true);}
+}
+function validateData(data) {
+    if(!data||typeof data!=='object'||Array.isArray(data)) throw Error('Formato de guardado no válido.');
+    const clean={};
+    const defaults=collectData();
+    let known=0;
+    for(const [key,val] of Object.entries(data)) {
+        if(!Object.hasOwn(defaults,key)) continue;
+        known++;
+        if(tables.includes(key)) {
+            const cols=document.querySelector('#'+key+' thead tr').cells.length;
+            if(!Array.isArray(val)||val.length>500||val.some(row=>!Array.isArray(row)||row.length!==cols||row.some(v=>typeof v!=='string'||v.length>100000))) throw Error('Hay una tabla no válida en el guardado.');
+        } else if(key==='strengths') {
+            if(!Array.isArray(val)||val.length>30||val.some(v=>typeof v!=='string'||v.length>200)) throw Error('Las fortalezas del guardado no son válidas.');
+        } else if(key==='currentStep') {
+            if(!Number.isInteger(val)||val<1||val>5) throw Error('El paso guardado no es válido.');
+        } else if(key==='avenida') {
+            if(typeof val!=='string'||(val&&!workspace.querySelector('input[name="avenida"]#'+CSS.escape(val)))) throw Error('La avenida guardada no es válida.');
+        } else if(typeof val!==typeof defaults[key]||(typeof val==='string'&&val.length>100000)) throw Error('Hay una respuesta no válida en el guardado.');
+        clean[key]=val;
+    }
+    if(!known) throw Error('Este archivo no contiene respuestas del plan.');
+    return clean;
+}
+function applyData(data) {
+    workspace.querySelectorAll('textarea[id],input[type="text"][id]').forEach(el=>el.value=data[el.id]||'');
+    workspace.querySelectorAll('input[type="checkbox"]').forEach(el=>el.checked=!!data[el.id]);
+    workspace.querySelectorAll('input[name="avenida"]').forEach(el=>el.checked=el.id===data.avenida);
+    workspace.querySelectorAll('.strength-item').forEach(el=>{const on=(data.strengths||[]).map(v=>v.replace('Analítico/a','Capacidad de análisis')).includes(el.textContent.trim());el.classList.toggle('selected',on);el.setAttribute('aria-pressed',String(on));});
+    tables.forEach(id=>{
+        const tbody=document.querySelector('#'+id+' tbody'); const cols=document.querySelector('#'+id+' thead tr').cells.length;
+        tbody.replaceChildren();
+        const rows=data[id]||[];
+        for(let ri=0;ri<Math.max(tableMinimum[id],rows.length);ri++) {
+            addRow(id,cols,false);
+            tbody.lastElementChild.querySelectorAll('input').forEach((el,ci)=>{el.value=rows[ri]?.[ci]||'';if(ri===0) el.placeholder=tableExamples[id][ci]||'';});
+        }
+        labelTable(id);
+    });
+    goTo(data.currentStep||1,false); updateProgress();
+}
+function loadAll() {
+    try {
+        const raw=localStorage.getItem(STORAGE_KEY);
+        if(raw) {applyData(validateData(JSON.parse(raw)));status('Respuestas recuperadas de este navegador');}
+        else {status('Tu avance se guarda en este navegador');}
+    } catch {status('No se pudieron recuperar las respuestas guardadas en este navegador.',true);}
+}
+function resetData() {
+    if(!confirm('¿Borrar todas tus respuestas y empezar de nuevo? Esta acción no se puede deshacer.')) return;
+    applyData({});saveAll();showView('plan');
+}
+function answer(text) {
+    const node=document.createElement('div');node.className='report-answer';
+    node.textContent=String(text||'').trim()||'Pendiente';
+    if(!String(text||'').trim()) node.classList.add('pending');
+    return node;
+}
+function renderReport() {
+    const out=document.getElementById('report-content');out.replaceChildren();
+    const head=document.createElement('header');head.className='report-document-title';
+    const title=document.createElement('h2');title.textContent='Plan Estratégico de Vida Profesional';
+    const who=document.createElement('p');
+    who.textContent=[document.getElementById('id-nombre').value||'Nombre pendiente',document.getElementById('id-carrera').value].filter(Boolean).join(' · ');
+    const date=document.createElement('p');date.textContent='Revisión del '+new Date().toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'});
+    head.append(title,who,date);out.append(head);
+    workspace.querySelectorAll('.step-section').forEach(section=>{
+        const clone=section.cloneNode(true);
+        // Copy current form properties before replacing the controls.
+        const live=section.querySelectorAll('input,textarea');
+        clone.querySelectorAll('input,textarea').forEach((field,i)=>{
+            if(field.type==='radio') {
+                const label=clone.querySelector('label[for="'+field.id+'"]');
+                if(!live[i].checked) label?.remove();
+                field.remove();
+            } else if(field.type==='checkbox') {
+                const state=document.createElement('span');state.className='check-state';state.textContent=live[i].checked?'Revisado':'Por revisar';field.replaceWith(state);
+            } else field.replaceWith(answer(live[i].value));
+        });
+        clone.querySelectorAll('.no-print,.add-row-btn,.inventory-tabs,.notice').forEach(el=>el.remove());
+        clone.querySelectorAll('.card').forEach(card=>{if(card.querySelector('button[onclick*="showView"]')) card.remove();});
+        clone.querySelectorAll('.inv-panel').forEach(panel=>{panel.classList.add('visible');panel.querySelector('.inventory-panel-title').hidden=false;});
+        clone.querySelectorAll('.strength-item').forEach(el=>{
+            if(!el.classList.contains('selected')) el.remove();
+            else {const tag=document.createElement('span');tag.className=el.className;tag.textContent=el.textContent.trim();el.replaceWith(tag);}
+        });
+        const strengths=clone.querySelector('.strengths-grid');if(strengths&&!strengths.children.length) strengths.append(answer(''));
+        const avenues=clone.querySelector('.avenida-grid');if(avenues&&!avenues.children.length) avenues.append(answer(''));
+        clone.querySelectorAll('label').forEach(el=>{const label=document.createElement('p');label.className='report-label';label.style.fontWeight='600';label.textContent=el.textContent;el.replaceWith(label);});
+        clone.querySelectorAll('button').forEach(el=>el.remove());
+        clone.removeAttribute('id');clone.classList.add('visible');
+        clone.querySelectorAll('[id],[for],[onclick],[aria-controls],[tabindex]').forEach(el=>['id','for','onclick','aria-controls','tabindex'].forEach(a=>el.removeAttribute(a)));
+        out.append(clone);
+    });
+}
+async function imprimirPlan() {
+    saveAll();
+    renderReport();
+    await document.fonts.ready;
+    window.print();
+}
+window.addEventListener('beforeprint',renderReport);
+window.addEventListener('hashchange',()=>showView(location.hash.slice(1),false));
+workspace.addEventListener('input',()=>{scheduleFit();updateProgress();clearTimeout(saveTimer);status('Guardando…');saveTimer=setTimeout(saveAll,250);});
+workspace.addEventListener('change',saveAll);
+window.addEventListener('pagehide',()=>{if(saveTimer) saveAll();});
+window.addEventListener('resize',scheduleFit);
+document.fonts.ready.then(scheduleFit);
+configureAccessibility();loadAll();goTo(currentStep,false);showView(location.hash.slice(1)||'plan',false);updateProgress();
+
+</script>
+</body>
+</html>

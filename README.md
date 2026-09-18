@@ -17,7 +17,7 @@ Para actualizar, editar los archivos de `docs/` y publicar un commit en `main`. 
 
 ## Assessment Lab
 
-Espacio para estudiantes en `docs/assessment-lab/`: siete casos AD26, propuesta de equipo, preparación profesional y rúbrica de la UF. Guardado opcional en el dispositivo; sin recepción automática de entregas.
+Espacio para estudiantes en `docs/assessment-lab/`: siete casos AD26, propuesta de equipo, preparación profesional y rúbrica de la UF. Respuestas en memoria durante la sesión; sin recepción automática de entregas.
 
 La versión vigente no incluye herramientas de evaluación docente ni documentos de autoría. El historial previo conserva versiones anteriores.
 

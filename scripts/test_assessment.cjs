@@ -14,7 +14,7 @@ check("!('extra' in sanitizeRecord({...freshTeam(caseForTeam(1)),extra:'x'},'tea
 vm.runInContext("teamData(1).together='Equipo uno';teamData(2).together='Equipo dos';",ctx);
 check("teamData(1).together==='Equipo uno' && teamData(2).together==='Equipo dos'");
 check("teamReport(caseForTeam(1),{...teamData(1),phrase:'<script>alert(1)</script>'}).includes('&lt;script&gt;')");
-check("teamView().includes('Ver propuesta') && evaluation().includes('Rúbrica de la UF')");
+check("teamView().includes('Ver propuesta') && evaluation().includes('Rúbrica de evaluación')");
 assert(!('centralQuestions' in data));
 for(const forbidden of ['reviewView','bindReview','Método del Lab','Descargar respaldo','Importar respaldo','Cerrar propuesta','página 2','lámina digital'])assert(!(source+html+JSON.stringify(data)).includes(forbidden),forbidden);
 for(const f of ['REGLAS_ASSESSMENT_LAB.md','ARQUITECTURA_Y_AUDITORIA.md'])assert(!fs.existsSync(path.join(root,'docs/assessment-lab',f)));

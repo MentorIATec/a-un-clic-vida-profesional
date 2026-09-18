@@ -17,10 +17,8 @@ Para actualizar, editar los archivos de `docs/` y publicar un commit en `main`. 
 
 ## Assessment Lab
 
-Módulo público en `docs/assessment-lab/` con siete casos AD26, propuesta de equipo, evaluación individual, reportes HTML descargables y referencias de reclutamiento. Respuestas en memoria; guardado local opcional. No hay backend, autenticación, sincronización ni recepción de entregas.
+Espacio para estudiantes en `docs/assessment-lab/`: siete casos AD26, propuesta de equipo, preparación profesional y rúbrica de la UF. Guardado opcional en el dispositivo; sin recepción automática de entregas.
 
-Fuentes editoriales en `content/assessment-lab/`: `REGLAS_ASSESSMENT_LAB.md`, `casos-ad26.md`, `instrucciones.md`, `rubrica.json` y `sesion-ad26.json`. Las asignaciones de equipos están separadas del contenido de los casos. Nunca guardar datos personales o evaluaciones reales en el repositorio.
+La versión vigente no incluye herramientas de evaluación docente ni documentos de autoría. El historial previo conserva versiones anteriores.
 
-Compilar contenido: `python3 scripts/build_assessment.py`. Servir `docs/` mediante un servidor HTTP para probar; no abrir por file:// porque se carga data.json. Pruebas de lógica: `node scripts/test_assessment.cjs`. Revisar también en navegador los formularios, móvil, exportaciones e impresión antes de publicar.
-
-Al modificar un caso, incrementar su versión en el compilador y documentar el cambio. No editar manualmente data.json. El contenido público incluye las reglas de autoría y la auditoría de estructura. El video de Bain carga solo al pulsar su botón y tiene enlace externo alternativo.
+Compilar contenido: `python3 scripts/build_assessment.py`. Pruebas: `node scripts/test_assessment.cjs`.

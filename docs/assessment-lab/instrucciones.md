@@ -13,11 +13,11 @@ Su tarea es recomendar una primera acción, explicar por qué tiene sentido y de
 
 ## Preparen dos entregables en 30 minutos
 
-1. Hoja de propuesta: completen la página 2 con respuestas breves a las cuatro preguntas.
+1. Propuesta: respondan las cuatro preguntas en este formulario.
 
-2. Apoyo visual obligatorio: preparen diapositivas o una lámina digital con esas respuestas, la frase memorable y el nombre + enlace o QR de LinkedIn de cada integrante. Verifiquen que cada enlace o QR abra el perfil correcto.
+2. Apoyo visual: preparen diapositivas o un one pager con las respuestas, la frase memorable y el nombre + enlace o QR de LinkedIn de cada integrante.
 
-Usen lo trabajado durante la Semana Tec. Al terminar, entreguen la hoja y guarden el apoyo visual listo para mostrar; después no lo editen. Tienen 5 minutos para presentar y 5 para responder preguntas. Participan todos.
+Usen lo trabajado durante la Semana Tec. Al terminar, tengan listo su apoyo visual. Participan todos.
 
 ## Qué debe verse en su propuesta
 
@@ -25,13 +25,13 @@ Usen lo trabajado durante la Semana Tec. Al terminar, entreguen la hoja y guarde
 
 ## Para preparar las respuestas
 
-La hoja y el apoyo visual responden las mismas cuatro preguntas. En la hoja usen frases breves; en el apoyo visual sinteticen lo necesario para explicar su propuesta. Puede ser una sola lámina con cuatro bloques y los enlaces de LinkedIn. Un enlace cumple el requisito; el QR es opcional.
+La propuesta y el apoyo visual responden las mismas cuatro preguntas. Usen respuestas breves y sinteticen sus argumentos en las diapositivas o el one pager.
 
 Consulten trabajos previos de la Semana Tec. Pueden usar editores locales o en línea sin funciones de IA y acceder a sus perfiles de LinkedIn; no investiguen el caso en Internet ni pidan ayuda externa. Cada integrante responderá una pregunta breve del comité. No se exige calcular costos, diseñar equipos ni citar leyes.
 
-## Hoja de propuesta
+## Propuesta
 
-**Equipo y empresa:** ____________________
+Seleccionen su equipo para abrir el formulario.
 
 ### 1 Qué aporta cada persona
 

@@ -11,17 +11,15 @@ Su tarea es recomendar una primera acción, explicar por qué tiene sentido y de
 3. **¿Qué haríamos primero y por qué?** Propongan una acción concreta con la información del caso. Indiquen qué dato falta comprobar y qué dirían a la persona que ejerce la presión descrita. Pueden condicionar su recomendación a una verificación; no inventen resultados.
 4. **¿Por qué seleccionar a nuestro equipo?** Sinteticen el valor de sus aportaciones para este proyecto. Cierren con una frase memorable y un compromiso que puedan cumplir.
 
-## Preparen dos entregables en 30 minutos
+## Entregables
 
-1. Propuesta: respondan las cuatro preguntas en este formulario o en un documento compartido.
+Tiempo estimado: 30 min
+
+1. Propuesta: respondan las cuatro preguntas en el formulario o en un documento compartido.
 
 2. Apoyo visual: preparen diapositivas o un one pager con las respuestas, la frase memorable y el nombre + enlace o QR de LinkedIn de cada integrante.
 
-Usen lo trabajado durante la Semana Tec. Al terminar, tengan listo su apoyo visual. Participan todos.
-
-## Qué debe verse en su propuesta
-
-Ética e integridad: decisión responsable. Comunicación oral y escrita: mensajes claros. Colaboración del equipo: aportaciones y coordinación. Propuesta profesional: valor claro, diferenciador y coherente. Se aplica la rúbrica original de la UF, sin cambios; la evaluación es individual.
+Material de consulta: trabajos de la Semana Tec y perfiles de LinkedIn. Sin investigación externa ni IA.
 
 ## Para preparar las respuestas
 

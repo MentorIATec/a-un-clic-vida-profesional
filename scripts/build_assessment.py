@@ -18,7 +18,7 @@ for i in range(1,len(parts),3):
 assert len(cases)==len(session['assignments'])==7
 assert len({c['id'] for c in cases})==7
 instructions=(C/'instrucciones.md').read_text()
-protected=instructions.split('## Preparen dos entregables en 30 minutos\n\n',1)[1].split('\n\n## Para preparar las respuestas',1)[0]
+protected=instructions.split('## Entregables\n\n',1)[1].split('\n\n## Para preparar las respuestas',1)[0]
 questions=[{'title':'¿Qué aporta cada persona?','hint':'Fortaleza y conocimiento, una experiencia concreta y su aplicación al caso.'},{'title':'¿Cómo trabajaríamos juntos?','hint':'Cómo se complementan y quién se ocuparía de cada parte del primer paso.'},{'title':'¿Qué haríamos primero y por qué?','hint':'Una acción y su razón, el dato que verificarían y qué responderían ante la presión.'},{'title':'¿Por qué seleccionar a nuestro equipo?','hint':'Su valor para el proyecto, una frase memorable y un compromiso realizable.'}]
 (O/'data.json').write_text(json.dumps({'session':session,'cases':cases,'rubric':rubric,'questions':questions,'protectedInstructions':protected},ensure_ascii=False,indent=2)+'\n')
 for f in ['casos-ad26.md','instrucciones.md']:

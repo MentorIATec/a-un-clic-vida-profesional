@@ -1,0 +1,34 @@
+{
+  "criteria": [
+    {
+      "name": "Ética e integridad",
+      "description": "Muestra actuaciones éticas, con sustento en los principios de dignidad, integridad, responsabilidad y bien común. Practica la integridad, con base en la autogestión, el respeto a la dignidad de las personas, los derechos humanos y la cultura de la legalidad."
+    },
+    {
+      "name": "Comunicación Oral y escrita",
+      "description": "Intercambia mensajes escritos de acuerdo a los códigos y protocolos apropiados al contexto y mensajes orales a través del diálogo, la negociación y la persuasión."
+    },
+    {
+      "name": "Colaboración del Equipo",
+      "description": "¿Se nota trabajo en equipo y participación equitativa?"
+    },
+    {
+      "name": "Propuesta profesional",
+      "description": "¿La propuesta es clara, diferenciadora y coherente?"
+    }
+  ],
+  "levels": [
+    {
+      "name": "Sólido",
+      "points": 25
+    },
+    {
+      "name": "Básico",
+      "points": 15
+    },
+    {
+      "name": "Incipiente",
+      "points": 0
+    }
+  ]
+}

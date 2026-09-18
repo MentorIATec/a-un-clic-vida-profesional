@@ -4,3 +4,5 @@
 @media print{body{background:#fff;color:#000;font-family:Arial,sans-serif;font-size:10.5pt}.site-head,.nav,footer,#notice,.no-print{display:none!important}main{padding:0}body.report-mode main{display:none}#report{margin:0;padding:0;max-width:none}h1{font-size:25pt}h2{font-size:16pt;break-after:avoid}h3{break-after:avoid}p,.answer{orphans:3;widows:3}.report-people article,.rubric-item{break-inside:avoid}a{color:#000}.present-grid{display:block}.present-grid section{break-inside:avoid}.panel{border:0;padding:0}.print-only{display:block}@page{margin:16mm}}
 
 .question-nav{display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:0;z-index:3;background:var(--paper);padding:10px 0;margin-bottom:18px}.question-nav button{font-size:.73rem;padding:7px 9px;background:white;color:var(--teal)}#team-form fieldset{scroll-margin-top:90px}.member textarea{min-height:76px}@media print{.question-nav{display:none}}
+
+.collaboration{margin-top:24px}.collaboration h2{font-size:1.25rem}.sync-note{border-left:3px solid var(--teal);padding:10px 14px;background:#eef2e8}.copy-note{font-size:.8rem;margin:8px 0 0}.collaboration textarea{min-height:220px}

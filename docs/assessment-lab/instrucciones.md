@@ -13,7 +13,7 @@ Su tarea es recomendar una primera acción, explicar por qué tiene sentido y de
 
 ## Preparen dos entregables en 30 minutos
 
-1. Propuesta: respondan las cuatro preguntas en este formulario.
+1. Propuesta: respondan las cuatro preguntas en este formulario o en un documento compartido.
 
 2. Apoyo visual: preparen diapositivas o un one pager con las respuestas, la frase memorable y el nombre + enlace o QR de LinkedIn de cada integrante.
 
@@ -28,6 +28,12 @@ Usen lo trabajado durante la Semana Tec. Al terminar, tengan listo su apoyo visu
 La propuesta y el apoyo visual responden las mismas cuatro preguntas. Usen respuestas breves y sinteticen sus argumentos en las diapositivas o el one pager.
 
 Consulten trabajos previos de la Semana Tec. Pueden usar editores locales o en línea sin funciones de IA y acceder a sus perfiles de LinkedIn; no investiguen el caso en Internet ni pidan ayuda externa. Cada integrante responderá una pregunta breve del comité. No se exige calcular costos, diseñar equipos ni citar leyes.
+
+## Trabajo desde varias computadoras
+
+Una persona copia el formato desde el sitio, lo pega en un Google Docs y lo comparte con permiso de edición con su equipo. Completen una sola propuesta ahí; no necesitan volver a capturarla en el formulario.
+
+**No hay sincronización automática.** El sitio no comparte respuestas entre computadoras ni recibe los cambios del documento. Elijan un solo lugar para trabajar. La copia incluye el caso y las respuestas escritas en ese dispositivo.
 
 ## Propuesta
 

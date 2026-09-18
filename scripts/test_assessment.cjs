@@ -22,3 +22,18 @@ const cases=read('content/assessment-lab/casos-ad26.md');
 for(const c of data.cases)for(const s of [...c.context,c.task,c.pressure,c.audience])assert(cases.includes(s));
 assert.deepEqual(data.rubric,JSON.parse(read('content/assessment-lab/rubrica.json')));
 console.log('OK: student navigation, case fidelity, rubric, form, proposal, validation, escaping and removal of educator tools.');
+check("collaborativeText(caseForTeam(1),{...teamData(1),phrase:'Frase de prueba'}).includes('Frase de prueba')");
+check("collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 3') && !collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 4')");
+check("collaborativeText(caseForTeam(1),teamData(1)).includes('no hay sincronización automática en ninguna dirección')");
+for(const q of data.questions)assert(vm.runInContext('collaborativeText(caseForTeam(1),teamData(1))',ctx).includes(q.title));
+(async()=>{
+ const nodes={'#copy-team':{},'#copy-fallback':{hidden:true},'#copy-text':{focus(){this.focused=true},select(){this.selected=true}},'#notice':{}};
+ ctx.document={querySelector:s=>nodes[s]};
+ let copied='';ctx.navigator={clipboard:{writeText:async t=>{copied=t}}};
+ vm.runInContext('bindCopy(caseForTeam(1),teamData(1))',ctx);await nodes['#copy-team'].onclick();
+ assert(copied.includes('Equipo uno'));assert(nodes['#copy-fallback'].hidden);
+ ctx.navigator.clipboard.writeText=async()=>{throw Error('blocked')};
+ await nodes['#copy-team'].onclick();assert(!nodes['#copy-fallback'].hidden);assert.equal(nodes['#copy-text'].value,copied);assert(nodes['#copy-text'].selected);
+ vm.runInContext('clearTimeout(timer)',ctx);
+ console.log('OK: collaboration copy, existing answers, team size, four questions and manual fallback.');
+})().catch(e=>{console.error(e);process.exitCode=1});

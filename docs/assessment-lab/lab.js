@@ -49,4 +49,4 @@ function render(){closeReport();const parts=location.hash.slice(1).split('/');ro
  document.querySelectorAll('.nav a').forEach(a=>{if(a.hash==='#'+(route==='caso'?'banco':route))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});window.scrollTo(0,0);main.focus({preventScroll:true});}
 window.addEventListener('hashchange',()=>{if(location.hash==='#main'){$('#main').focus();return;}if(D)render();});
 window.addEventListener('beforeunload',e=>{if(!persist&&(Object.keys(state.teams).length)){e.preventDefault();e.returnValue='';}});
-fetch('data.json').then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{D=data;load();render();}).catch(()=>{$('#main').innerHTML='<h1>No se pudo cargar el Lab</h1><p>Recarga la página o consulta los <a href="casos-ad26.md">casos en Markdown</a>.</p>';});
+fetch('data.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{D=data;load();render();}).catch(()=>{$('#main').innerHTML='<h1>No se pudo cargar el Lab</h1><p>Recarga la página o consulta los <a href="casos-ad26.md">casos en Markdown</a>.</p>';});

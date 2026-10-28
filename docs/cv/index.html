@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mi primer CV · Formato CVDP</title><style>
+        /* Tipografía moderna y limpia */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #222222; 
+            line-height: 1.3; /* Reducido ligeramente para ganar espacio vertical */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            font-size: 9pt; /* Tamaño optimizado para acomodar toda la información */
+        }
+        
+        /* Contenedor principal - Tamaño Carta exacto */
+        .cv-container {
+            width: 8.5in;
+            height: 11in;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 0.45in 0.8in; /* Margen superior/inferior reducido para que quepa todo */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Encabezado Principal */
+        header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 24pt;
+            font-weight: 300; 
+            letter-spacing: 2px;
+            margin: 0 0 3px 0;
+            color: #111;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            font-size: 10.5pt;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #0033a0; /* Azul Tec */
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .contact-info {
+            font-size: 8.5pt;
+            color: #555;
+        }
+        .separator {
+            margin: 0 6px;
+            color: #ccc;
+        }
+
+        /* Títulos de Sección */
+        h2 {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #0033a0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 10px; /* Espaciado superior ajustado */
+            margin-bottom: 6px;
+            border-bottom: 1px solid #0033a0;
+            padding-bottom: 2px;
+        }
+
+        /* Contenido de las secciones */
+        .section-content {
+            margin-bottom: 0;
+        }
+        p.profile-text {
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* Estructura Flexbox para alineación perfecta Izquierda-Derecha */
+        .entry {
+            margin-bottom: 8px; /* Espaciado entre entradas ajustado */
+        }
+        .entry-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+            font-size: 9.5pt;
+            color: #111;
+        }
+        .entry-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 3px;
+        }
+        .date-location {
+            font-weight: normal;
+            font-style: normal;
+            color: #333;
+        }
+
+        /* Viñetas limpias y corporativas */
+        ul {
+            margin: 2px 0 4px 0;
+            padding-left: 18px;
+        }
+        li {
+            margin-bottom: 2px;
+            text-align: justify;
+        }
+        li::marker {
+            color: #0033a0; 
+            font-size: 9pt;
+        }
+
+        /* Estilos específicos para la sección de Habilidades */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .skills-list li {
+            margin-bottom: 3px;
+        }
+        .skills-title {
+            font-weight: bold;
+            color: #111;
+        }
+
+
+*{box-sizing:border-box}body{font-size:10pt}.app{max-width:1450px;margin:auto;padding:20px}.intro{background:white;padding:22px;border-top:4px solid #0033a0;border-radius:8px}.intro h1{font-size:23px;text-transform:none;letter-spacing:0;font-weight:700}.intro p{max-width:85ch}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}button,.file-button{font:inherit;border:1px solid #b6c7dd;background:white;color:#15345b;padding:10px 14px;border-radius:6px;cursor:pointer}button.primary{background:#0033a0;color:white}button.danger{color:#9c2525}button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #b16c00;outline-offset:2px}.layout{display:grid;grid-template-columns:minmax(300px,440px) minmax(0,1fr);gap:24px;align-items:start}.editor section{background:white;border:1px solid #dce3ec;border-radius:8px;padding:18px;margin-bottom:14px}.editor h2{margin-top:0}.field{display:block;margin:12px 0}.field span{display:block;font-weight:600;margin-bottom:4px}input:not([type=checkbox]),textarea{width:100%;font:inherit;padding:9px;border:1px solid #9baec6;border-radius:4px;color:#222;background:#fff}textarea{min-height:90px;resize:vertical}.hint{font-size:13px;line-height:1.45;color:#44546a;margin:5px 0 12px}.entry-editor{border-top:1px solid #dce3ec;margin-top:15px;padding-top:14px}.entry-actions{display:flex;gap:5px;flex-wrap:wrap}.entry-actions button{font-size:12px;padding:6px}.notice{background:#fff3d6;color:#543b00;border-left:4px solid #b87a00;padding:13px;margin:12px 0}.status{padding:10px;background:#e8effa;border-radius:5px}.preview-shell{overflow:auto;padding:4px 15px 20px}.cv-container{height:auto;min-height:11in;overflow:visible;margin:0 auto;width:8.5in;padding:.45in .8in;background:white;box-shadow:0 3px 18px #0002;font-size:10pt}.cv-container h1{overflow-wrap:anywhere}.cv-container .contact-info{font-size:9pt;overflow-wrap:anywhere}.cv-container .entry-top,.cv-container .entry-bottom{gap:12px;flex-wrap:wrap}.cv-container .date-location{margin-left:auto}.cv-container p,.cv-container li{white-space:pre-line;text-align:left;overflow-wrap:anywhere}.cv-container h2{break-after:avoid}.cv-container .entry{break-inside:avoid}.empty-preview{color:#667;font-style:italic}.checklist{padding-left:20px}.checklist li{margin:8px 0}details{margin:12px 0}summary{cursor:pointer;font-weight:600}.mobile-note{display:none}a{color:#0033a0}.preview-heading{font-size:18px;color:#123;font-weight:bold;margin:12px 0}.print-review{max-width:75ch}.print-review h2{font-size:20px}dialog{border:1px solid #aaa;border-radius:10px;padding:22px;max-width:680px;width:92%;max-height:85vh;overflow:auto}dialog::backdrop{background:#0008}.small{font-size:12px}footer{margin-top:20px;color:#526079;font-size:12px}
+@media(max-width:1150px){.layout{display:block}.preview-shell{margin-top:20px}.mobile-note{display:block}}@media(max-width:600px){.app{padding:10px}.toolbar button{flex:1 1 40%}.intro{padding:16px}}
+@page{size:letter;margin:.45in .8in}@media print{body{background:#fff;color:#222}.app{padding:0;margin:0;max-width:none}.no-print,.editor,.intro,.toolbar,footer,dialog{display:none!important}.layout{display:block}.preview-shell{padding:0;overflow:visible}.cv-container{padding:0;margin:0;width:auto;min-height:0;height:auto;overflow:visible;box-shadow:none}.cv-container section{break-inside:auto}.cv-container .entry{break-inside:avoid}.cv-container h2{break-after:avoid}a{color:inherit;text-decoration:none}.empty-preview{display:none}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body><main class="app"><nav class="no-print" style="margin-bottom:16px"><a href="../">← A un clic de tu vida profesional</a></nav><div class="intro no-print"><h1>Construye tu primer CV</h1><p>Parte de lo que ya has hecho en clases, proyectos, actividades estudiantiles, voluntariado o trabajo. No necesitas experiencia laboral para comenzar.</p><p class="hint">Construye tu CV paso a paso: reúne tus experiencias, elige lo que quieres comunicar y revisa cómo se verá antes de compartirlo. Puedes comenzar con proyectos de clase y añadir nuevas experiencias cuando las tengas.</p><p id="save-status" class="status" role="status" aria-live="polite"></p><div class="toolbar"><button id="backup" class="primary">Descargar avance editable</button><button id="import">Abrir avance</button><input type="file" id="file" accept=".json,application/json" hidden><button id="print" class="primary">Revisar y exportar PDF</button><button id="reset" class="danger">Comenzar de nuevo</button></div><p class="hint">El avance se guarda en este navegador cuando es posible. Descarga tu respaldo JSON para continuar en otro equipo: ábrelo aquí con «Abrir avance». El PDF es para compartir; no reemplaza el respaldo editable. No se envían tus datos a ningún servidor.</p><details><summary>¿Qué puedo incluir si no he trabajado?</summary><p>Proyectos académicos, retos con una organización, servicio social, voluntariado, trabajo independiente o actividades estudiantiles. Describe tu participación real y distingue tu acción del resultado del equipo. Puedes omitir secciones que no apliquen.</p><p>Para una viñeta: <strong>acción propia + qué hiciste y cómo + resultado o avance que puedes sostener</strong>. No es obligatorio usar porcentajes. No inventes cifras.</p><p><strong>Ejemplo ficticio:</strong> Organicé las respuestas de ocho entrevistas en una tabla y comparé los temas recurrentes para que el equipo priorizara los problemas de su propuesta.</p><p>El ejemplo es una referencia; no se añade a tu CV.</p></details></div><div class="layout"><div id="editor" class="editor no-print"></div><div><div class="preview-heading no-print">Vista previa del CV</div><p class="hint mobile-note no-print">La hoja conserva su tamaño carta. Desplázate horizontalmente para revisarla; edita desde los campos de arriba.</p><div id="length-status" class="notice no-print" role="status"></div><div class="preview-shell"><article id="cv" class="cv-container" aria-label="Vista previa de tu CV"></article></div></div></div><footer class="no-print">Referencia de formato: CVDP Campus Monterrey. Adaptación de uso educativo · A un clic de tu vida profesional · AD26. Guarda un respaldo antes de borrar datos del navegador.</footer></main><dialog id="review"><div class="print-review"><h2>Revisa antes de exportar</h2><div id="review-content"></div><ul class="checklist"><li>Comprueba nombre, contacto y datos reales. No incluyas información ficticia.</li><li>Revisa ortografía, fechas y tu participación en cada experiencia.</li><li>En la ventana de impresión elige «Guardar como PDF», tamaño carta y escala 100%. Desactiva encabezados y pies del navegador si aparecen.</li><li>Revisa todas las páginas en la vista de impresión. Si ocupa más de una, puedes volver y sintetizar; no se ocultará contenido para forzar una sola hoja.</li><li>Abre el PDF guardado y verifica que el final del documento esté completo y el texto sea legible.</li></ul><div class="toolbar"><button id="confirm-print" class="primary">Abrir impresión / Guardar como PDF</button><button id="close-review">Volver a editar</button></div></div></dialog>
+<script>
+'use strict';
+const KEY='cv_cvdp_primer_cv_v2';
+const specs=[{key:'education',title:'Educación',fields:[['organization','Institución'],['role','Carrera o programa'],['dates','Fechas o graduación estimada'],['detail','Campus, concentración o promedio (opcional)'],['bullets','Información relevante (opcional; una viñeta por línea)','area']]},{key:'experience',title:'Experiencia',fields:[['organization','Organización o contexto'],['role','Rol o participación'],['dates','Fechas'],['detail','Lugar o modalidad (opcional)'],['bullets','Qué hiciste y qué ocurrió (una viñeta por línea)','area']]},{key:'projects',title:'Proyectos',fields:[['organization','Nombre del proyecto'],['role','Contexto: materia, reto, proyecto propio…'],['dates','Fechas'],['detail','Tu rol u organización vinculada (opcional)'],['bullets','Acciones propias y resultados o avances (una viñeta por línea)','area']]},{key:'activities',title:'Actividades extracurriculares',fields:[['organization','Actividad u organización'],['role','Rol o participación'],['dates','Fechas'],['detail','Contexto (opcional)'],['bullets','Acciones y aportaciones (una viñeta por línea)','area']]},{key:'courses',title:'Cursos y certificaciones',fields:[['organization','Curso o certificación'],['role','Institución emisora'],['dates','Fecha'],['detail','Credencial o enlace visible (opcional)'],['bullets','Información pertinente (opcional)','area']]}];
+const emptyEntry=()=>({organization:'',role:'',dates:'',detail:'',bullets:''});
+const blank=()=>({personal:{name:'',title:'',phone:'',email:'',linkedin:'',city:'',profile:''},skills:{languages:'',software:'',technical:'',other:''},sections:Object.fromEntries(specs.map(s=>[s.key,{enabled:!['experience','activities','courses'].includes(s.key),entries:[emptyEntry()]}]))});
+let data=blank(),storageOK=true;
+const $=id=>document.getElementById(id);
+function el(tag,text,cls){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e}
+function hasText(v){return typeof v==='string'&&v.trim().length>0}
+function populated(e){return Object.values(e).some(hasText)}
+function normalize(raw){if(!raw||raw.format!=='cv-cvdp-v2'||raw.version!==2||!raw.data)throw Error('Este archivo no es un avance compatible de esta versión.');const out=blank(),r=raw.data;for(const group of ['personal','skills']){if(!r[group]||typeof r[group]!=='object')throw Error('El avance está incompleto.');for(const k of Object.keys(out[group])){if(typeof r[group][k]!=='string'||r[group][k].length>50000)throw Error('Hay un campo inválido o demasiado extenso.');out[group][k]=r[group][k]}}for(const s of specs){const v=r.sections?.[s.key];if(!v||typeof v.enabled!=='boolean'||!Array.isArray(v.entries)||v.entries.length>100)throw Error('Hay una sección inválida.');out.sections[s.key]={enabled:v.enabled,entries:v.entries.map(x=>{const e=emptyEntry();for(const k of Object.keys(e)){if(typeof x?.[k]!=='string'||x[k].length>50000)throw Error('Hay una entrada inválida.');e[k]=x[k]}return e})}}return out}
+function envelope(){return {format:'cv-cvdp-v2',version:2,savedAt:new Date().toISOString(),data}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(envelope()));storageOK=true;$('save-status').textContent='Guardado en este navegador y dispositivo. Descarga un avance editable para tener un respaldo.'}catch{storageOK=false;$('save-status').textContent='No se pudo guardar en este navegador. Descarga tu avance editable antes de cerrar.'}}
+function field(host,label,value,change,area=false,type='text'){const l=el('label',undefined,'field'),t=el('span',label),i=el(area?'textarea':'input');if(!area)i.type=type;i.value=value;i.addEventListener('input',()=>{change(i.value);save();renderCV()});l.append(t,i);host.append(l);return i}
+function hint(host,text){host.append(el('p',text,'hint'))}
+function renderEditor(){const root=$('editor');root.replaceChildren();const personal=el('section');personal.append(el('h2','Tu encabezado'));hint(personal,'Usa tu nombre y una descripción fiel a tu etapa, por ejemplo «Estudiante de…». Contacto: correo, teléfono, LinkedIn y ciudad; no necesitas domicilio completo.');for(const [k,label,type] of [['name','Nombre completo'],['title','Carrera o descripción de tu etapa'],['phone','Teléfono','tel'],['email','Correo profesional','email'],['linkedin','LinkedIn o portafolio (URL visible)'],['city','Ciudad y estado']])field(personal,label,data.personal[k],v=>data.personal[k]=v,false,type);root.append(personal);const profile=el('section');profile.append(el('h2','Perfil profesional · opcional'));hint(profile,'Escribe 2–4 oraciones: qué estudias, una experiencia o conocimiento relevante y qué te interesa explorar. Puedes dejarlo vacío mientras avanzas. Evita adjetivos sin ejemplos.');field(profile,'Tu perfil',data.personal.profile,v=>data.personal.profile=v,true);root.append(profile);
+for(const s of specs){const block=el('section');block.append(el('h2',s.title));const toggle=el('label'),check=el('input');check.type='checkbox';check.checked=data.sections[s.key].enabled;toggle.append(check,document.createTextNode(' Incluir esta sección en el CV'));check.addEventListener('change',()=>{data.sections[s.key].enabled=check.checked;save();renderEditor();renderCV()});block.append(toggle);hint(block,s.key==='experience'?'Si aún no has trabajado, puedes omitir esta sección. Tus proyectos y actividades también permiten mostrar aportaciones.':'Incluye solo entradas pertinentes. Se muestran en el orden que elijas; coloca primero lo más reciente.');if(data.sections[s.key].enabled){data.sections[s.key].entries.forEach((entry,index)=>{const box=el('div',undefined,'entry-editor');box.append(el('h3','Entrada '+(index+1)));for(const [k,label,kind] of s.fields)field(box,label,entry[k],v=>entry[k]=v,kind==='area');const actions=el('div',undefined,'entry-actions');for(const [label,fn,disabled] of [['Subir',()=>move(s.key,index,-1),index===0],['Bajar',()=>move(s.key,index,1),index===data.sections[s.key].entries.length-1],['Eliminar entrada',()=>{if(populated(entry)&&!confirm('¿Eliminar esta entrada? Descarga un respaldo si deseas conservarla.'))return;data.sections[s.key].entries.splice(index,1);save();renderEditor();renderCV()},false]]){const b=el('button',label);b.disabled=disabled;b.addEventListener('click',fn);actions.append(b)}box.append(actions);block.append(box)});const add=el('button','+ Añadir entrada');add.addEventListener('click',()=>{if(data.sections[s.key].entries.length>=100){alert('Límite de 100 entradas por sección.');return}data.sections[s.key].entries.push(emptyEntry());save();renderEditor();renderCV()});block.append(add)}root.append(block)}const skill=el('section');skill.append(el('h2','Habilidades e idiomas · opcional'));hint(skill,'Incluye conocimientos que puedas explicar o demostrar. Para idiomas, indica nivel y certificación solo si corresponden. No uses barras de dominio ni inventes equivalencias.');for(const [k,label] of [['languages','Idiomas y nivel'],['software','Software y herramientas'],['technical','Habilidades técnicas'],['other','Otras habilidades pertinentes']])field(skill,label,data.skills[k],v=>data.skills[k]=v,true);root.append(skill)}
+function move(key,i,d){const entries=data.sections[key].entries;[entries[i],entries[i+d]]=[entries[i+d],entries[i]];save();renderEditor();renderCV()}
+function renderCV(){const cv=$('cv');cv.replaceChildren();const p=data.personal;const header=el('header');if(hasText(p.name))header.append(el('h1',p.name));if(hasText(p.title))header.append(el('div',p.title,'subtitle'));const contacts=[p.phone,p.email,p.linkedin,p.city].filter(hasText);if(contacts.length)header.append(el('div',contacts.join('  |  '),'contact-info'));if(header.childNodes.length)cv.append(header);function section(title){const sec=el('section');sec.append(el('h2',title));cv.append(sec);return sec}if(hasText(p.profile))section('Perfil profesional').append(el('p',p.profile,'profile-text'));for(const s of specs){if(s.key==='activities')renderSkills();const entries=data.sections[s.key].entries.filter(populated);if(!data.sections[s.key].enabled||!entries.length)continue;const sec=section(s.title);for(const entry of entries){const wrap=el('div',undefined,'entry');const top=el('div',undefined,'entry-top');if(hasText(entry.organization))top.append(el('span',entry.organization));if(hasText(entry.dates))top.append(el('span',entry.dates,'date-location'));if(top.childNodes.length)wrap.append(top);const bottom=el('div',undefined,'entry-bottom');if(hasText(entry.role))bottom.append(el('span',entry.role));if(hasText(entry.detail))bottom.append(el('span',entry.detail));if(bottom.childNodes.length)wrap.append(bottom);const lines=entry.bullets.split(/\n/).map(x=>x.trim()).filter(Boolean);if(lines.length){const ul=el('ul');lines.forEach(line=>ul.append(el('li',line.replace(/^[•*-]\s+/,''))));wrap.append(ul)}sec.append(wrap)}}function renderSkills(){const values=[['languages','Idiomas'],['software','Software'],['technical','Habilidades técnicas'],['other','Otras habilidades']].filter(([k])=>hasText(data.skills[k]));if(!values.length)return;const ul=el('ul',undefined,'skills-list');for(const [k,label]of values){const li=el('li'),strong=el('span',label+': ','skills-title');li.append(strong,document.createTextNode(data.skills[k]));ul.append(li)}section('Habilidades e idiomas').append(ul)}if(!cv.childNodes.length)cv.append(el('p','Tu CV aparecerá aquí al completar los campos. Las ayudas y las secciones vacías no se imprimen.','empty-preview'));requestAnimationFrame(checkLength)}
+function checkLength(){const cv=$('cv'),st=getComputedStyle(cv),content=cv.scrollHeight-parseFloat(st.paddingTop)-parseFloat(st.paddingBottom),usable=(11-.9)*96;const long=content>usable+2;$('length-status').textContent=long?'Tu contenido supera el espacio aproximado de una página. Puedes sintetizarlo o conservar varias páginas. No se recortará para forzarlo a caber. Confirma la paginación en la vista de impresión.':'Objetivo: una página legible. La paginación final depende de tu navegador: revisa todas las páginas antes de guardar el PDF.';return long}
+function download(){const blob=new Blob([JSON.stringify(envelope(),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=el('a');a.href=url;const name=data.personal.name.trim().replace(/[^\p{L}\p{N} -]/gu,'').replace(/\s+/g,'_')||'Mi_CV';a.download=name+'_avance_CVDP.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+$('backup').addEventListener('click',download);$('import').addEventListener('click',()=>$('file').click());$('file').addEventListener('change',async ev=>{const f=ev.target.files[0];if(!f)return;try{if(f.size>5000000)throw Error('El archivo supera 5 MB.');const incoming=normalize(JSON.parse(await f.text()));if(!confirm('Abrir este avance reemplazará el contenido actual. ¿Deseas continuar? Descarga antes un respaldo si necesitas conservarlo.'))return;data=incoming;save();renderEditor();renderCV()}catch(e){alert('No se abrió el archivo. '+(e instanceof SyntaxError?'El JSON no es válido.':e.message))}finally{ev.target.value=''}});
+$('reset').addEventListener('click',()=>{if(!confirm('¿Comenzar de nuevo y reemplazar el avance de este navegador? Descarga primero un respaldo para conservarlo.'))return;data=blank();save();renderEditor();renderCV()});
+$('print').addEventListener('click',()=>{const messages=[];if(!hasText(data.personal.name))messages.push('Falta tu nombre.');if(![data.personal.phone,data.personal.email,data.personal.linkedin].some(hasText))messages.push('No has incluido un medio de contacto.');if(checkLength())messages.push('El contenido puede ocupar varias páginas; revisa la vista de impresión.');const root=$('review-content');root.replaceChildren();messages.forEach(m=>root.append(el('p',m,'notice')));$('review').showModal()});$('close-review').addEventListener('click',()=>$('review').close());$('confirm-print').addEventListener('click',()=>{if(!hasText(data.personal.name)){alert('Escribe tu nombre antes de exportar.');return}$('review').close();window.print()});
+try{const saved=localStorage.getItem(KEY);if(saved)data=normalize(JSON.parse(saved));$('save-status').textContent=saved?'Avance recuperado de este navegador. Guarda también un respaldo editable.':'Comienza con tus datos. Descarga un respaldo editable para conservar tu avance.'}catch{storageOK=false;$('save-status').textContent='No se pudo recuperar un avance. Puedes abrir un respaldo JSON; descarga tu avance antes de cerrar si el guardado local no está disponible.'}
+renderEditor();renderCV();window.addEventListener('resize',checkLength);
+</script></body></html>

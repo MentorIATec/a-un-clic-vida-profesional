@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plan Financiero Anual — 2 Escenarios | A un clic de tu vida profesional</title>
+<style>
+  body { font-family: 'Segoe UI', Calibri, sans-serif; font-size: 11pt; color: #333; line-height: 1.5; max-width: 1050px; margin: 30px auto; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-radius: 12px; background: #ffffff; }
+  html { background: #eef2f5; }
+
+  .header { background: #002b5e; color: white; padding: 28px 30px; text-align: center; border-radius: 12px 12px 0 0; margin: -40px -40px 25px -40px; }
+  .header h1 { margin: 0; font-size: 19pt; letter-spacing: 1px; font-weight: 300; }
+  .header-sub { font-size: 11pt; margin-top: 6px; opacity: 0.82; font-style: italic; }
+
+  .intro-box { background: #f4f6f9; border-left: 4px solid #6c757d; padding: 14px 20px; margin-bottom: 22px; border-radius: 0 8px 8px 0; font-size: 10.5pt; color: #495057; }
+  .intro-box strong { color: #2c3e50; }
+
+  .personal-data { display: flex; gap: 15px; margin-bottom: 22px; background: #fff; padding: 14px 18px; border-radius: 8px; border: 1px solid #dee2e6; box-shadow: 0 1px 4px rgba(0,0,0,0.03); flex-wrap: wrap; }
+  .input-line { flex: 1; min-width: 140px; border: none; border-bottom: 2px solid #adb5bd; font-family: inherit; font-size: 11pt; padding: 4px; outline: none; background: transparent; transition: border-color 0.3s; color: #2c3e50; font-weight: 600; }
+  .input-line:focus { border-bottom-color: #002b5e; }
+  .pd-label { font-weight: 600; align-self: center; color: #495057; white-space: nowrap; }
+
+  .card { padding: 20px 25px; margin-bottom: 28px; background: #fafafa; border-radius: 0 10px 10px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.03); border-left: 6px solid; }
+  .card h3 { font-size: 13pt; margin: 0 0 14px 0; display: flex; align-items: center; gap: 10px; }
+
+  .card-ocean   { border-left-color: #154360; background: #f4f8fb; }
+  .card-ocean h3   { color: #154360; }
+  .card-emerald { border-left-color: #0E6251; background: #f2f9f6; }
+  .card-emerald h3 { color: #0E6251; }
+  .card-terracotta { border-left-color: #A04000; background: #fdf6f2; }
+  .card-terracotta h3 { color: #A04000; }
+  .card-sky  { border-left-color: #2874A6; background: #f3f8fa; }
+  .card-sky h3  { color: #2874A6; }
+  .card-indigo  { border-left-color: #4A235A; background: #f7f4f9; }
+  .card-indigo h3  { color: #4A235A; }
+
+  .activity-note { font-size: 9.5pt; color: #6c757d; font-style: italic; margin-bottom: 14px; }
+
+  /* ── Tables ── */
+  table { width: 100%; border-collapse: collapse; margin-top: 6px; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+  th, td { border: 1px solid #e9ecef; padding: 0; vertical-align: middle; }
+  th { background: #f8f9fa; color: #495057; padding: 11px 14px; text-align: left; font-weight: 600; border-bottom: 2px solid #dee2e6; font-size: 10.5pt; }
+  th.th-a { background: #dbeafe; color: #1e40af; text-align: center; }
+  th.th-b { background: #dcfce7; color: #166534; text-align: center; }
+  td.concept-cell { padding: 10px 14px; font-size: 10.5pt; color: #495057; max-width: 260px; }
+  td.concept-cell.sub { padding-left: 22px; color: #6c757d; font-style: italic; font-size: 10pt; }
+  td.total-concept { padding: 10px 14px; font-size: 10.5pt; font-weight: 700; color: #2c3e50; }
+
+  tr.section-row td { background: #f0f4f8; font-weight: 600; font-size: 10pt; color: #374151; padding: 8px 14px; }
+  tr.total-row td { background: #f0f9f4; }
+  tr.total-row td input { font-weight: 700; }
+  tr.balance-row td { background: #faf5ff; }
+  tr.balance-row td input { font-weight: 700; }
+  tr.status-row td { background: #f0fdf4; }
+  tr.deficit-row td { background: #fff5f5; }
+  tr.highlight-row td { background: #fffbeb; }
+
+  /* ── Inputs ── */
+  input[type="text"], textarea { width: 100%; border: 1px solid #ced4da; background: #fff; border-radius: 6px; padding: 10px 12px; font-family: inherit; font-size: 11pt; box-sizing: border-box; resize: none; overflow: hidden; outline: none; transition: all 0.3s; color: #2c3e50; }
+  input[type="text"]:focus, textarea:focus { border-color: #00509e; box-shadow: 0 0 5px rgba(0,80,158,0.2); }
+  td input[type="text"], td textarea { border: none; border-radius: 0; box-shadow: none; padding: 10px 12px; background: transparent; }
+  td input[type="text"]:focus, td textarea:focus { box-shadow: inset 0 0 5px rgba(0,80,158,0.12); }
+
+  /* Number inputs */
+  .num-input { width: 100%; border: none; border-radius: 0; background: transparent; padding: 10px 12px; font-family: inherit; font-size: 11pt; color: #2c3e50; box-sizing: border-box; outline: none; text-align: right; }
+  .num-input:focus { box-shadow: inset 0 0 5px rgba(0,80,158,0.15); background: rgba(219,234,254,0.2); }
+  td.input-a { background: rgba(219,234,254,0.25); }
+  td.input-b { background: rgba(220,252,231,0.25); }
+  td.input-a:focus-within { background: rgba(219,234,254,0.5); }
+  td.input-b:focus-within { background: rgba(220,252,231,0.5); }
+
+  .num-calc { width: 100%; border: none; border-radius: 0; background: transparent; padding: 10px 12px; font-family: inherit; font-size: 11pt; color: #6c757d; box-sizing: border-box; text-align: right; cursor: default; }
+  .num-total { width: 100%; border: none; border-radius: 0; background: transparent; padding: 10px 12px; font-family: inherit; font-size: 11pt; font-weight: 700; color: #155724; box-sizing: border-box; text-align: right; cursor: default; }
+  .num-deficit { color: #842029; }
+  .num-surplus { color: #0f5132; }
+
+  .status-box { padding: 10px 14px; font-weight: 600; font-size: 10.5pt; }
+  .status-box.surplus { color: #0f5132; }
+  .status-box.deficit { color: #842029; }
+  .status-box.equilibrio { color: #664d03; }
+
+  /* Comparison table */
+  .cmp-table th { text-align: center; }
+  .cmp-table td.cmp-val { text-align: right; padding: 10px 14px; font-size: 11pt; font-weight: 600; }
+  .cmp-table td.cmp-dif { text-align: right; padding: 10px 14px; font-size: 11pt; }
+  .cmp-dif.pos { color: #0f5132; font-weight: 700; }
+  .cmp-dif.neg { color: #842029; font-weight: 700; }
+  .cmp-dif.zero { color: #664d03; }
+
+  .mejor-box { margin-top: 14px; padding: 12px 16px; border-radius: 8px; font-size: 10.5pt; font-weight: 600; text-align: center; }
+  .mejor-a { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+  .mejor-b { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+  .mejor-igual { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
+  .mejor-empty { background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; }
+
+  /* Savings alert */
+  .pct-box { padding: 8px 14px; font-size: 10pt; }
+  .pct-ok { color: #0f5132; font-weight: 600; }
+  .pct-low { color: #92400e; }
+
+  /* Reflection textareas */
+  .reflex-label { font-weight: 600; font-size: 10.5pt; color: #34495e; margin: 16px 0 6px 0; }
+  .reflex-note { font-size: 9.5pt; color: #7f8c8d; font-style: italic; margin-bottom: 8px; }
+
+  /* Buttons */
+  .button-group { display: flex; gap: 14px; margin-top: 44px; }
+  .btn { flex: 1; border: none; padding: 16px; font-size: 12pt; font-weight: bold; border-radius: 8px; cursor: pointer; transition: transform 0.1s, background 0.3s; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+  .btn:active { transform: translateY(2px); }
+  .btn-save { background: #154360; }
+  .btn-save:hover { background: #0b2434; }
+  .btn-clear { background: #900C3F; flex: 0.28; }
+  .btn-clear:hover { background: #580726; }
+
+  .auto-save-notice { text-align: center; color: #1E8449; font-size: 10pt; font-weight: 600; margin-bottom: 18px; background: #EAFAF1; padding: 10px; border-radius: 6px; border: 1px solid #D5F5E3; }
+
+  @media print {
+    @page { margin: 1.4cm; }
+    html, body { background: #fff; box-shadow: none; margin: 0; padding: 0; max-width: 100%; }
+    .header { margin: 0 0 18px 0; border-radius: 0; padding: 18px; }
+    .button-group, .auto-save-notice, .activity-note { display: none; }
+    .card { background: transparent !important; break-inside: auto; page-break-inside: auto; margin-bottom: 14px; padding: 10px 14px; }
+    tr { break-inside: avoid; }
+    .num-input, .num-calc, .num-total { border: none !important; }
+  }
+
+[hidden]{display:none!important}input:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #a56300;outline-offset:2px}[aria-invalid=true]{box-shadow:inset 0 0 0 2px #a22233}.helper,details.info{font-size:10pt;color:#495057}details.info summary{cursor:pointer;color:#154360}.author{border-top:1px solid #bbb;margin-top:24px;padding-top:12px;font-size:9pt;color:#495057}.print-value{white-space:pre-wrap;overflow-wrap:anywhere;padding:8px}#print-report{display:none}table{table-layout:fixed}th,td{overflow-wrap:anywhere}@media(max-width:650px){body{padding:14px;margin:0}.header{margin:-14px -14px 18px;padding:20px 12px}.header h1{font-size:17pt}.card{padding:12px 8px}th,td.concept-cell,td.total-concept{padding:7px 4px;font-size:9pt}.num-input,.num-calc,.num-total{padding:9px 4px;font-size:10pt}.button-group{flex-direction:column}}@page{size:letter;margin:14mm}@media print{#workspace{display:none!important}#print-report{display:block!important}body{font-size:9pt}.header{margin:0 0 18px}.card{break-inside:auto}thead{display:table-header-group}tr{break-inside:avoid}.print-value{font-size:9pt;orphans:3;widows:3}.author{font-size:8pt;break-inside:avoid}h3{break-after:avoid}.screen-only{display:none}}
+</style>
+</head>
+<body><main id="workspace">
+
+<div class="header">
+  <h1>💰 PLAN FINANCIERO ANUAL — 2 ESCENARIOS</h1>
+  <div class="header-sub">Actividad · Dimensión financiera · A un clic de tu vida profesional · Tec de Monterrey</div>
+</div>
+
+<div class="intro-box"><strong>Compara dos posibilidades para tu siguiente paso.</strong> Pueden ser empleo, prácticas, estudio, emprendimiento o una pausa entre tus estudios y tu siguiente paso. Proyecta ingresos, gastos y ahorro de un periodo de 12 meses. Puedes usar cifras ficticias. Los montos mensuales se mantienen constantes durante el periodo; no es un flujo de efectivo mes a mes. Un campo vacío está pendiente; escribe 0 cuando no aplica.</div>
+
+<div class="auto-save-notice" id="save-status" role="status">El avance se guarda en este navegador cuando es posible.</div><p class="screen-only">Los cálculos se hacen aquí. El PDF guarda una copia de tus respuestas y resultados. No se envían tus datos a un servidor.</p>
+
+<div class="personal-data">
+  <span class="pd-label">Nombre:</span>
+  <input type="text" class="input-line" id="pd_nombre" placeholder="Nombre completo...">
+  <span class="pd-label">Matrícula:</span>
+  <input type="text" class="input-line" id="pd_matricula" style="flex:0.4;" placeholder="A0...">
+  <span class="pd-label">Carrera:</span>
+  <input type="text" class="input-line" id="pd_carrera" placeholder="Carrera...">
+</div>
+
+<!-- ─── CARD 1: DEFINE TUS ESCENARIOS ─────────────────────────────────────── -->
+<div class="card card-ocean">
+  <h3>🗺️ 1. DEFINE TUS ESCENARIOS</h3>
+  <p class="activity-note">Puedes elegir cualquier par de escenarios: dos empleos diferentes, empleo vs. emprendimiento, vivir en tu ciudad vs. emigrar, trabajar en tu área vs. continuar estudiando, etc. Sé específico: cuantos más detalles pongas, más útil será el ejercicio.</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%;">Concepto</th>
+        <th class="th-a" style="width:36%;" id="th-a-def">🔵 ESCENARIO A</th>
+        <th class="th-b" style="width:36%;" id="th-b-def">🟢 ESCENARIO B</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="concept-cell"><strong>Nombre del escenario</strong><br><span style="font-size:9.5pt;color:#9ca3af;">Dale un título corto y claro</span></td>
+        <td class="input-a"><input type="text" class="num-input" id="a_nombre" placeholder="Ej: Trabajo en Monterrey"  style="text-align:left;"></td>
+        <td class="input-b"><input type="text" class="num-input" id="b_nombre" placeholder="Ej: Emprendimiento propio"  style="text-align:left;"></td>
+      </tr>
+      <tr>
+        <td class="concept-cell"><strong>Describe el escenario</strong><br><span style="font-size:9.5pt;color:#9ca3af;">Empresa, rol, ciudad, condiciones, supuestos...</span></td>
+        <td class="input-a" style="vertical-align:top;"><textarea id="a_desc" rows="3" style="background:transparent;border:none;box-shadow:none;padding:10px 12px;" placeholder="Ej: Analista de datos en empresa manufacturera en MTY, zona industrial San Nicolás. Salario base negociado. Vivo con compañeros de cuarto..."></textarea></td>
+        <td class="input-b" style="vertical-align:top;"><textarea id="b_desc" rows="3" style="background:transparent;border:none;box-shadow:none;padding:10px 12px;" placeholder="Ej: Consultoría independiente desde casa. 3 clientes potenciales identificados. Trabajo remoto con posibilidad de viajar. Sin sueldo fijo los primeros meses..."></textarea></td>
+      </tr>
+      <tr>
+        <td class="concept-cell">¿Cuándo iniciaría?</td>
+        <td class="input-a"><input type="text" class="num-input" id="a_inicio" placeholder="Ej: Junio 2026" style="text-align:left;"></td>
+        <td class="input-b"><input type="text" class="num-input" id="b_inicio" placeholder="Ej: Agosto 2026" style="text-align:left;"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── CARD 2: INGRESOS ────────────────────────────────────────────────────── -->
+<div class="card card-emerald">
+  <h3>💵 2. INGRESOS MENSUALES PROYECTADOS</h3>
+  <p class="activity-note">Escribe los montos en pesos mexicanos (MXN). Los campos en gris se calculan automáticamente. Usa 0 si una categoría no aplica en tu escenario.</p>
+  <p class="helper"><strong>Bruto</strong> es el sueldo antes de descuentos; <strong>neto</strong> es lo que queda después. Aquí restamos un <strong>19% fijo</strong> del bruto para practicar la diferencia. Retomamos el número del formato original como supuesto sencillo de impuestos y seguridad social combinados; no es una tasa real de ISR.</p><details class="info"><summary>ⓘ ¿Por qué puede variar?</summary><p>Los descuentos reales dependen del sueldo, el país, las reglas fiscales y de seguridad social, y las condiciones de contratación. Este ejercicio no calcula una nómina real.</p></details><p class="helper">Si no proyectas un sueldo, escribe 0 en bruto y registra tus apoyos o ingresos disponibles en «Otros ingresos». A estos últimos no se les aplica el 19%. No cuentes el mismo ingreso dos veces.</p><table>
+    <thead>
+      <tr>
+        <th style="width:28%;">Concepto</th>
+        <th class="th-a" style="width:36%;" id="th-a-ing">🔵 Escenario A ($)</th>
+        <th class="th-b" style="width:36%;" id="th-b-ing">🟢 Escenario B ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="concept-cell">Ingreso bruto mensual<br><span style="font-size:9.5pt;color:#9ca3af;">Sueldo antes de descuentos</span></td>
+        <td class="input-a"><input type="number" class="num-input" id="a_bruto" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_bruto" placeholder="0" min="0" oninput="recalcular()"></td>
+      </tr>
+      <tr>
+        <td class="concept-cell sub">(-) Descuentos aproximados (19%)<br><span style="font-size:9.5pt;color:#9ca3af;">Supuesto fijo del simulacro</span></td>
+        <td style="background:rgba(243,244,246,0.6);"><input type="text" class="num-calc" id="a_deduc" readonly tabindex="-1"></td>
+        <td style="background:rgba(243,244,246,0.6);"><input type="text" class="num-calc" id="b_deduc" readonly tabindex="-1"></td>
+      </tr>
+      <tr>
+        <td class="concept-cell">Ingresos adicionales<br><span style="font-size:9.5pt;color:#9ca3af;">Freelance, inversiones, negocio paralelo... (0 si no aplica)</span></td>
+        <td class="input-a"><input type="number" class="num-input" id="a_extra" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_extra" placeholder="0" min="0" oninput="recalcular()"></td>
+      </tr>
+      <tr class="total-row">
+        <td class="total-concept">INGRESO NETO MENSUAL</td>
+        <td><input type="text" class="num-total" id="a_neto_mes" readonly tabindex="-1"></td>
+        <td><input type="text" class="num-total" id="b_neto_mes" readonly tabindex="-1"></td>
+      </tr>
+      <tr class="total-row">
+        <td class="total-concept">INGRESO NETO ANUAL (× 12)</td>
+        <td><input type="text" class="num-total" id="a_neto_anual" readonly tabindex="-1"></td>
+        <td><input type="text" class="num-total" id="b_neto_anual" readonly tabindex="-1"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── CARD 3: EGRESOS ─────────────────────────────────────────────────────── -->
+<div class="card card-terracotta">
+  <h3>💸 3. EGRESOS MENSUALES PROYECTADOS</h3>
+  <p class="activity-note">Incluye todos los gastos que tendrías en cada escenario. Si alguna categoría no aplica, escribe 0. Si un escenario implica vivir con familia o no pagar renta, refleja eso aquí.</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%;">Categoría</th>
+        <th class="th-a" style="width:36%;" id="th-a-eg">🔵 Escenario A ($)</th>
+        <th class="th-b" style="width:36%;" id="th-b-eg">🟢 Escenario B ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="concept-cell">Vivienda (renta, hipoteca)</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_vivienda" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_vivienda" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Transporte</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_transporte" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_transporte" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Alimentación</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_alimentos" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_alimentos" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Servicios básicos (luz, internet, agua)</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_servicios" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_servicios" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Salud y seguros</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_salud" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_salud" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Entretenimiento y salidas</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_entrete" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_entrete" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Ropa y cuidado personal</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_ropa" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_ropa" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Suscripciones y tecnología</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_suscripc" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_suscripc" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Pago de deudas o créditos</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_deudas" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_deudas" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Educación, cursos y certificaciones</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_educacion" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_educacion" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr><td class="concept-cell">Otros gastos</td>
+        <td class="input-a"><input type="number" class="num-input" id="a_otros" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_otros" placeholder="0" min="0" oninput="recalcular()"></td></tr>
+      <tr class="total-row">
+        <td class="total-concept">TOTAL EGRESOS MENSUALES</td>
+        <td><input type="text" class="num-total" id="a_total_eg" readonly tabindex="-1"></td>
+        <td><input type="text" class="num-total" id="b_total_eg" readonly tabindex="-1"></td></tr>
+      <tr class="total-row">
+        <td class="total-concept">TOTAL EGRESOS ANUALES (× 12)</td>
+        <td><input type="text" class="num-total" id="a_total_eg_anual" readonly tabindex="-1"></td>
+        <td><input type="text" class="num-total" id="b_total_eg_anual" readonly tabindex="-1"></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── CARD 4: AHORRO ──────────────────────────────────────────────────────── -->
+<div class="card card-sky">
+  <h3>🏦 4. AHORRO E INVERSIÓN MENSUAL</h3>
+  <p class="activity-note">Define tu meta de ahorro como si fuera un gasto fijo, no lo que "sobra". La regla 50/30/20 sugiere destinar al menos 20% del neto al ahorro e inversión.</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%;">Concepto</th>
+        <th class="th-a" style="width:36%;" id="th-a-aho">🔵 Escenario A ($)</th>
+        <th class="th-b" style="width:36%;" id="th-b-aho">🟢 Escenario B ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="concept-cell">Meta de ahorro mensual<br><span style="font-size:9.5pt;color:#9ca3af;">Elige una meta que puedas revisar.</span></td>
+        <td class="input-a"><input type="number" class="num-input" id="a_ahorro" placeholder="0" min="0" oninput="recalcular()"></td>
+        <td class="input-b"><input type="number" class="num-input" id="b_ahorro" placeholder="0" min="0" oninput="recalcular()"></td>
+      </tr>
+      <tr>
+        <td class="concept-cell sub">% sobre ingreso neto mensual</td>
+        <td style="background:rgba(243,244,246,0.6);"><div class="pct-box" id="a_ahorro_pct_div">—</div></td>
+        <td style="background:rgba(243,244,246,0.6);"><div class="pct-box" id="b_ahorro_pct_div">—</div></td>
+      </tr>
+      <tr class="total-row">
+        <td class="total-concept">META DE AHORRO ANUAL (× 12)</td>
+        <td><input type="text" class="num-total" id="a_ahorro_anual" readonly tabindex="-1"></td>
+        <td><input type="text" class="num-total" id="b_ahorro_anual" readonly tabindex="-1"></td>
+      </tr>
+      <tr>
+        <td class="concept-cell">¿En qué lo invertirás o guardarás?</td>
+        <td class="input-a"><input type="text" class="num-input" id="a_donde_ahorra" placeholder="Ej: CETES, fondo de emergencia, cuenta de ahorro..." style="text-align:left;"></td>
+        <td class="input-b"><input type="text" class="num-input" id="b_donde_ahorra" placeholder="Ej: Capital semilla del negocio, CETES..." style="text-align:left;"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── CARD 5: BALANCE ─────────────────────────────────────────────────────── -->
+<div class="card card-indigo">
+  <h3>⚖️ 5. BALANCE ANUAL PROYECTADO</h3>
+  <p class="activity-note">El balance es lo que queda después de cubrir todos tus gastos Y tu meta de ahorro. Un balance positivo significa que tienes margen de maniobra o colchón para imprevistos.</p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%;">Resultado</th>
+        <th class="th-a" style="width:36%;" id="th-a-bal">🔵 Escenario A</th>
+        <th class="th-b" style="width:36%;" id="th-b-bal">🟢 Escenario B</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="concept-cell">Balance mensual<br><span style="font-size:9.5pt;color:#9ca3af;">Neto − Egresos − Ahorro</span></td>
+        <td style="background:rgba(243,244,246,0.4);"><input type="text" class="num-calc" id="a_balance_mes" readonly tabindex="-1"></td>
+        <td style="background:rgba(243,244,246,0.4);"><input type="text" class="num-calc" id="b_balance_mes" readonly tabindex="-1"></td>
+      </tr>
+      <tr class="balance-row">
+        <td class="total-concept">BALANCE ANUAL PROYECTADO</td>
+        <td><input type="text" class="num-total" id="a_balance_anual" readonly tabindex="-1"></td>
+        <td><input type="text" class="num-total" id="b_balance_anual" readonly tabindex="-1"></td>
+      </tr>
+      <tr>
+        <td class="concept-cell"><strong>Estado del plan</strong></td>
+        <td><div class="status-box" id="a_estado">Ingresa tus datos para ver el resultado.</div></td>
+        <td><div class="status-box" id="b_estado">Ingresa tus datos para ver el resultado.</div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── CARD 6: COMPARACIÓN ────────────────────────────────────────────────── -->
+<div class="card card-ocean">
+  <h3>🔍 6. COMPARACIÓN DE ESCENARIOS</h3>
+  <p class="activity-note">Esta tabla se actualiza automáticamente conforme llenas los datos anteriores.</p>
+  <table class="cmp-table">
+    <thead>
+      <tr>
+        <th style="width:28%;">Concepto</th>
+        <th class="th-a" style="width:22%;" id="th-a-cmp">🔵 Escenario A</th>
+        <th class="th-b" style="width:22%;" id="th-b-cmp">🟢 Escenario B</th>
+        <th style="width:28%;background:#f3f4f6;color:#374151;text-align:center;">Diferencia (B − A)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="concept-cell">Ingreso neto anual</td>
+        <td class="cmp-val" id="cmp_ing_a">—</td>
+        <td class="cmp-val" id="cmp_ing_b">—</td>
+        <td class="cmp-dif" id="cmp_ing_dif">—</td>
+      </tr>
+      <tr>
+        <td class="concept-cell">Egresos anuales</td>
+        <td class="cmp-val" id="cmp_eg_a">—</td>
+        <td class="cmp-val" id="cmp_eg_b">—</td>
+        <td class="cmp-dif" id="cmp_eg_dif">—</td>
+      </tr>
+      <tr>
+        <td class="concept-cell">Ahorro anual</td>
+        <td class="cmp-val" id="cmp_aho_a">—</td>
+        <td class="cmp-val" id="cmp_aho_b">—</td>
+        <td class="cmp-dif" id="cmp_aho_dif">—</td>
+      </tr>
+      <tr class="total-row">
+        <td class="total-concept">Balance anual</td>
+        <td class="cmp-val" id="cmp_bal_a">—</td>
+        <td class="cmp-val" id="cmp_bal_b">—</td>
+        <td class="cmp-dif" id="cmp_bal_dif">—</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mejor-box mejor-empty" id="mejor_escenario_box">Completa los datos para ver qué escenario genera mayor balance anual.</div>
+</div>
+
+<!-- ─── CARD 7: REFLEXIÓN ───────────────────────────────────────────────────── -->
+<div class="card card-emerald">
+  <h3>💡 7. REFLEXIÓN Y COMPROMISOS</h3>
+  <p class="activity-note">El número más alto no siempre gana. Considera también calidad de vida, aprendizaje, propósito, alineación con tus valores y metas a largo plazo.</p>
+
+  <div class="reflex-label">¿Qué escenario favorece mejor tus metas de vida profesional y personal? ¿Por qué?</div>
+  <div class="reflex-note">No te limites al balance económico. Piensa en crecimiento, propósito, relaciones, estilo de vida y trayectoria a 5 años.</div>
+  <textarea id="reflex_1" rows="3" placeholder="Escribe tu reflexión aquí..."></textarea>
+
+  <div class="reflex-label" style="margin-top:18px;">¿Qué ajustes harías en el escenario menos favorable para hacerlo más viable?</div>
+  <div class="reflex-note">¿Podrías reducir algún gasto, aumentar un ingreso, cambiar algo de la estructura del escenario?</div>
+  <textarea id="reflex_2" rows="3" placeholder="Escribe tus ajustes posibles aquí..."></textarea>
+
+  <div class="reflex-label" style="margin-top:18px;">¿Cuál es tu compromiso financiero concreto para este año?</div>
+  <div class="reflex-note">Sé específico: no solo "ahorrar más", sino "ahorrar $X antes de [fecha] para [propósito]".</div>
+  <textarea id="reflex_3" rows="3" placeholder="Ej: Ahorrar $3,000 mensuales durante el periodo elegido, destinados a mi fondo de emergencia de 3 meses y al inicio de mi certificación en análisis de datos."></textarea>
+</div>
+
+<!-- Botones -->
+<div class="button-group">
+  <button class="btn btn-save" onclick="exportPDF()">💾 Guardar como PDF</button>
+  <button class="btn btn-clear" onclick="limpiarDatos()">🗑️ Borrar todo</button>
+</div>
+
+<footer class="author">Autoría y adaptación didáctica: Karen Ariadna Guzmán Vega, ME. · kareng@tec.mx.<br>Recurso con fines educativos para la Semana Tec «A un clic de tu vida profesional».</footer></main><article id="print-report"></article><script>
+'use strict';
+const STORAGE_KEY='plan_financiero_simple_v3',RATE=0.19;
+const expenseKeys=['vivienda','transporte','alimentos','servicios','salud','entrete','ropa','suscripc','deudas','educacion','otros'];
+const $=id=>document.getElementById(id);
+function amount(id){const el=$(id),text=el.value;if(el.validity&&el.validity.badInput)return {invalid:true};if(text.trim()==='')return {pending:true};const n=Number(text);return !Number.isFinite(n)||n<0||n>1e9||Math.abs(n*100-Math.round(n*100))>0.0001?{invalid:true}:{value:Math.round(n*100)}}
+const fmt=n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN'}).format((n||0)/100);
+function calculate(p){const pending=[],invalid=[];const take=k=>{const id=p+'_'+k,n=amount(id);if(n.pending)pending.push(id);if(n.invalid)invalid.push(id);return n.value??0};const gross=take('bruto'),extra=take('extra'),deductions=Math.round(gross*RATE),net=gross-deductions+extra,expenses=expenseKeys.reduce((s,k)=>s+take(k),0),saving=take('ahorro');return {gross,extra,deductions,net,expenses,saving,balance:net-expenses-saving,pending,invalid}}
+function set(id,text){const e=$(id);if('value'in e&&e.tagName==='INPUT')e.value=text;else e.textContent=text}
+function update(){for(const p of ['a','b']){const c=calculate(p);const incomeReady=[p+'_bruto',p+'_extra'].every(id=>{const n=amount(id);return !n.pending&&!n.invalid}),expensesReady=expenseKeys.every(k=>{const n=amount(p+'_'+k);return !n.pending&&!n.invalid}),savingReady=(()=>{const n=amount(p+'_ahorro');return !n.pending&&!n.invalid})();const g=amount(p+'_bruto');set(p+'_deduc',!g.pending&&!g.invalid?fmt(-c.deductions):'Pendiente');set(p+'_neto_mes',incomeReady?fmt(c.net):'Pendiente');set(p+'_neto_anual',incomeReady?fmt(c.net*12):'Pendiente');set(p+'_total_eg',expensesReady?fmt(c.expenses):'Pendiente');set(p+'_total_eg_anual',expensesReady?fmt(c.expenses*12):'Pendiente');set(p+'_ahorro_anual',savingReady?fmt(c.saving*12):'Pendiente');set(p+'_ahorro_pct_div',incomeReady&&savingReady?(c.net===0?'No aplica':(c.saving/c.net*100).toFixed(1)+'%'):'Pendiente');const complete=!c.pending.length&&!c.invalid.length;set(p+'_balance_mes',complete?fmt(c.balance):'Pendiente');set(p+'_balance_anual',complete?fmt(c.balance*12):'Pendiente');set(p+'_estado',c.invalid.length?'Corrige los importes señalados.':c.pending.length?'Completa las cantidades; escribe 0 si no aplica.':c.net<c.expenses?'Los ingresos no cubren los gastos.':c.balance<0?'Los gastos están cubiertos; ajusta la meta de ahorro.':c.balance===0?'Sin remanente después del ahorro.':'Queda un remanente bajo estos supuestos.');for(const id of [p+'_bruto',p+'_extra',p+'_ahorro',...expenseKeys.map(k=>p+'_'+k)]){const bad=amount(id).invalid;$(id).setAttribute('aria-invalid',bad?'true':'false');$(id).title=bad?'Usa un importe no negativo con hasta dos decimales.':''}}
+const a=calculate('a'),b=calculate('b'),complete=!a.pending.length&&!a.invalid.length&&!b.pending.length&&!b.invalid.length;for(const [id,k]of [['cmp_ing','net'],['cmp_eg','expenses'],['cmp_aho','saving'],['cmp_bal','balance']]){set(id+'_a',!a.pending.length&&!a.invalid.length?fmt(a[k]*12):'Pendiente');set(id+'_b',!b.pending.length&&!b.invalid.length?fmt(b[k]*12):'Pendiente');set(id+'_dif',complete?fmt((b[k]-a[k])*12):'Pendiente')}set('mejor_escenario_box',complete?'La diferencia muestra el remanente económico. Revisa también aprendizaje, bienestar y condiciones de cada ruta.':'Completa ambos escenarios para comparar.');actualizarEncabezados();}
+function actualizarEncabezados(){for(const p of ['a','b'])for(const key of ['def','ing','eg','aho','bal','cmp'])set('th-'+p+'-'+key,p.toUpperCase()+' · '+($(p+'_nombre').value.trim()||'Escenario '+p.toUpperCase()))}
+function editable(){return Array.from(document.querySelectorAll('input[id],textarea[id]')).filter(e=>!e.readOnly)}
+function saveAll(){try{const data={};for(const e of editable())data[e.id]=e.value;localStorage.setItem(STORAGE_KEY,JSON.stringify(data));$('save-status').textContent='Avance guardado en este navegador.'}catch{$('save-status').textContent='No se pudo guardar en este navegador. Conserva tu PDF antes de cerrar.'}}
+function recalcular(){update();saveAll()}
+function limpiarDatos(){if(!confirm('¿Borrar tu avance? Guarda primero tu PDF si deseas conservarlo.'))return;for(const e of editable())e.value='';update();saveAll()}
+function autoResize(){this.style.height='auto';this.style.height=this.scrollHeight+'px'}
+function renderPrint(){update();const clone=$('workspace').cloneNode(true);clone.removeAttribute('id');clone.querySelectorAll('button,.auto-save-notice,.screen-only').forEach(e=>e.remove());clone.querySelectorAll('input,textarea').forEach(input=>{const div=document.createElement('div');div.className='print-value';div.textContent=input.value||'Pendiente';input.replaceWith(div)});clone.querySelectorAll('details').forEach(e=>e.open=true);clone.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));$('print-report').replaceChildren(clone)}
+function exportPDF(){renderPrint();window.print()}
+window.addEventListener('beforeprint',renderPrint);
+document.addEventListener('DOMContentLoaded',()=>{try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const data=JSON.parse(raw);if(!data||typeof data!=='object')throw Error();for(const e of editable()){if(data[e.id]!==undefined&&typeof data[e.id]!=='string')throw Error()}for(const e of editable())if(data[e.id]!==undefined)e.value=data[e.id];$('save-status').textContent='Avance recuperado de este navegador.'}}catch{$('save-status').textContent='No se pudo recuperar el avance anterior de esta versión.'}for(const e of editable()){e.removeAttribute('oninput');e.addEventListener('input',()=>{if(e.tagName==='TEXTAREA')autoResize.call(e);update();saveAll()});if(e.type==='number'){e.step='0.01';e.max='1000000000';e.setAttribute('aria-label',(e.closest('tr')?.cells[0]?.textContent||'Importe')+' · escenario '+e.id.slice(0,1).toUpperCase())}}update()});
+</script></body></html>

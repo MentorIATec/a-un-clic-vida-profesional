@@ -26,3 +26,5 @@ assert(run('bank()').includes('Abrir formulario de coevaluación'));
 assert(run('caseView(caseForTeam(7))').includes('Valora a los otros seis equipos, al tuyo no.'));
 assert(run('coevaluation()').includes('1FAIpQLSehy9F0E_Z835ovZP8fnXZaYFMoR0L-uIC1f5MDCgFDNZzArw/viewform'));
 assert(run('coevaluation()').includes('rel="noopener noreferrer"'));
+
+for(const a of data.session.assignments)assert(run(`collaborativeText(caseForTeam(${a.team}))`).includes('Liga a la presentación o apoyo visual: [Pegar URL completa]'));

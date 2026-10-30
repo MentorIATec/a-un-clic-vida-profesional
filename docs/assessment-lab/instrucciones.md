@@ -15,7 +15,7 @@ Su tarea es recomendar una primera acción, explicar por qué tiene sentido y de
 
 Tiempo estimado: 30 min
 
-1. Propuesta: respondan las cuatro preguntas en el formulario o en un documento compartido.
+1. Propuesta: respondan las cuatro preguntas en un documento compartido.
 
 2. Apoyo visual: preparen diapositivas o un one pager con las respuestas, la frase memorable y el nombre + enlace o QR de LinkedIn de cada integrante.
 
@@ -29,13 +29,13 @@ Consulten trabajos previos de la Semana Tec. Pueden usar editores locales o en l
 
 ## Trabajo desde varias computadoras
 
-Una persona copia el formato desde el sitio, lo pega en un Google Docs y lo comparte con permiso de edición con su equipo. Completen una sola propuesta ahí; no necesitan volver a capturarla en el formulario.
+Una persona pulsa «Copiar caso y plantilla de propuesta», pega el contenido en Google Docs o Word y comparte el documento con permiso de edición con su equipo. Todos escriben y guardan ahí.
 
-**No hay sincronización automática.** El sitio no comparte respuestas entre computadoras ni recibe los cambios del documento. Elijan un solo lugar para trabajar. La copia incluye el caso y las respuestas escritas en ese dispositivo.
+El Lab sirve para consultar el caso, copiar la plantilla y revisar la rúbrica. Exporten la propuesta desde su documento compartido y entreguen en Canvas.
 
 ## Propuesta
 
-Seleccionen su equipo para abrir el formulario.
+Seleccionen su equipo, pulsen «Copiar caso y plantilla de propuesta» y péguenlo en un documento compartido.
 
 ### 1 Qué aporta cada persona
 

@@ -8,3 +8,6 @@
 .collaboration{margin-top:24px}.collaboration h2{font-size:1.25rem}.sync-note{border-left:3px solid var(--teal);padding:10px 14px;background:#eef2e8}.copy-note{font-size:.8rem;margin:8px 0 0}.collaboration textarea{min-height:220px}
 
 #team-select{margin-bottom:24px}
+
+/* One delivery sequence, arranged in columns only when there is room. */
+.delivery-card{margin-top:24px}.delivery-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:0;padding:0}.delivery-steps li{display:flex;align-items:flex-start;gap:12px;min-width:0}.delivery-number{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;line-height:1}.delivery-steps strong{display:block;line-height:1.5}.delivery-steps p{margin:4px 0 0;color:var(--muted);line-height:1.55}.delivery-note{margin:24px 0 8px;font-size:.92rem}.delivery-rubric{font-size:.85rem}.delivery-card ol{list-style-type:none}@media(max-width:800px){.delivery-steps{grid-template-columns:1fr;gap:20px}.delivery-note{margin-top:20px}}

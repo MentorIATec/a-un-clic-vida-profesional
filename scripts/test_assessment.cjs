@@ -28,3 +28,13 @@ assert(run('coevaluation()').includes('1FAIpQLSehy9F0E_Z835ovZP8fnXZaYFMoR0L-uIC
 assert(run('coevaluation()').includes('rel="noopener noreferrer"'));
 
 for(const a of data.session.assignments)assert(run(`collaborativeText(caseForTeam(${a.team}))`).includes('Liga a la presentación o apoyo visual: [Pegar URL completa]'));
+
+for(const a of data.session.assignments){
+ const text=run(`collaborativeText(caseForTeam(${a.team}))`),view=run(`caseView(caseForTeam(${a.team}))`);
+ assert(!text.includes(' · '));assert(!text.includes('versión'));assert(!text.includes('Caso: '+a.caseId));
+ assert(text.startsWith('ASSESSMENT AD26\n\nEquipo '+a.team));
+ assert(view.indexOf('class="reading"')<view.indexOf('id="copy-team"'));
+ assert(view.indexOf('class="reading"')<view.indexOf('aria-label="Coevaluación'));
+}
+assert(!run('bank()').includes('y plantilla'));
+assert(run('copyUI()').includes('>Copiar caso</button>'));

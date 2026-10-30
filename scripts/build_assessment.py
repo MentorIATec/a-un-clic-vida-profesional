@@ -12,7 +12,7 @@ for i in range(1,len(parts),3):
  narrative,rest=body.split('**Encargo y límites.** ',1)
  task,rest=rest.split('**Presión que deben atender.** ',1)
  pressure,audience=rest.split('**Comité que selecciona:** ',1)
- case={'id':assignment['caseId'],'version':'1.0','title':title,'sector':assignment['sector'],'focus':assignment['focus'],'context':narrative.strip().split('\n\n'),'task':task.strip(),'pressure':pressure.strip(),'audience':audience.strip()}
+ case={'id':assignment['caseId'],'version':assignment.get('version','1.0'),'title':title,'sector':assignment['sector'],'focus':assignment['focus'],'context':narrative.strip().split('\n\n'),'task':task.strip(),'pressure':pressure.strip(),'audience':audience.strip()}
  assert all(case[k] for k in ['id','title','task','pressure','audience'])
  cases.append(case)
 assert len(cases)==len(session['assignments'])==7

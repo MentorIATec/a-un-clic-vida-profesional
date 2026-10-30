@@ -1,44 +1,23 @@
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict'),path=require('path');
-const root=path.resolve(__dirname,'..'), read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const data=JSON.parse(read('docs/assessment-lab/data.json'));
-const source=read('docs/assessment-lab/lab.js'), html=read('docs/assessment-lab/index.html');
-const ctx=vm.createContext({console,URL,setTimeout,clearTimeout});
-vm.runInContext(source.slice(0,source.indexOf("window.addEventListener('hashchange'")),ctx);
-vm.runInContext(`D=${JSON.stringify(data)}`,ctx);
-const check=e=>assert.equal(vm.runInContext(e,ctx),true,e);
-check('D.cases.length===7 && D.questions.length===4');
-check('freshTeam(caseForTeam(7)).members.length===4 && freshTeam(caseForTeam(1)).members.length===4');
-check("validLinkedIn('https://www.linkedin.com/in/ejemplo') && !validLinkedIn('javascript:alert(1)') && !validLinkedIn('https://linkedin.com.evil.test/in/test')");
-check("validRecord(freshTeam(caseForTeam(1)),'team',caseForTeam(1)) && !validRecord(freshTeam(caseForTeam(1)),'team',caseForTeam(2))");
-check("!('extra' in sanitizeRecord({...freshTeam(caseForTeam(1)),extra:'x'},'team',caseForTeam(1)))");
-vm.runInContext("teamData(1).together='Equipo uno';teamData(2).together='Equipo dos';",ctx);
-check("teamData(1).together==='Equipo uno' && teamData(2).together==='Equipo dos'");
-check("teamReport(caseForTeam(1),{...teamData(1),phrase:'<script>alert(1)</script>'}).includes('&lt;script&gt;')");
-check("teamView().includes('Ver propuesta') && evaluation().includes('Rúbrica de evaluación')");
-assert(!('centralQuestions' in data));
-for(const forbidden of ['reviewView','bindReview','Método del Lab','Descargar respaldo','Importar respaldo','Cerrar propuesta','página 2','lámina digital'])assert(!(source+html+JSON.stringify(data)).includes(forbidden),forbidden);
-for(const f of ['REGLAS_ASSESSMENT_LAB.md','ARQUITECTURA_Y_AUDITORIA.md'])assert(!fs.existsSync(path.join(root,'docs/assessment-lab',f)));
-const cases=read('content/assessment-lab/casos-ad26.md');
-for(const c of data.cases)for(const s of [...c.context,c.task,c.pressure,c.audience])assert(cases.includes(s));
-assert.deepEqual(data.rubric,JSON.parse(read('content/assessment-lab/rubrica.json')));
-console.log('OK: student navigation, case fidelity, rubric, form, proposal, validation, escaping and removal of educator tools.');
-check("collaborativeText(caseForTeam(1),{...teamData(1),phrase:'Frase de prueba'}).includes('Frase de prueba')");
-check("collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 3') && collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 4')");
-check("collaborativeText(caseForTeam(1),teamData(1)).includes('no hay sincronización automática en ninguna dirección')");
-for(const q of data.questions)assert(vm.runInContext('collaborativeText(caseForTeam(1),teamData(1))',ctx).includes(q.title));
-(async()=>{
- const nodes={'#copy-team':{},'#copy-fallback':{hidden:true},'#copy-text':{focus(){this.focused=true},select(){this.selected=true}},'#notice':{}};
- ctx.document={querySelector:s=>nodes[s]};
- let copied='';ctx.navigator={clipboard:{writeText:async t=>{copied=t}}};
- vm.runInContext('bindCopy(caseForTeam(1),teamData(1))',ctx);await nodes['#copy-team'].onclick();
- assert(copied.includes('Equipo uno'));assert(nodes['#copy-fallback'].hidden);
- ctx.navigator.clipboard.writeText=async()=>{throw Error('blocked')};
- await nodes['#copy-team'].onclick();assert(!nodes['#copy-fallback'].hidden);assert.equal(nodes['#copy-text'].value,copied);assert(nodes['#copy-text'].selected);
- vm.runInContext('clearTimeout(timer)',ctx);
- console.log('OK: collaboration copy, existing answers, team size, four questions and manual fallback.');
-})().catch(e=>{console.error(e);process.exitCode=1});
-
+const root=path.resolve(__dirname,'..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const data=JSON.parse(read('docs/assessment-lab/data.json')),source=read('docs/assessment-lab/lab.js'),html=read('docs/assessment-lab/index.html');
+const nodes={'#main':{focus(){}},'#report':{},'#notice':{},'#copy-team':{},'#copy-text':{focus(){this.focused=true},select(){this.selected=true}},'#manual-copy':{open:false}};
+const ctx=vm.createContext({console,URL,setTimeout,clearTimeout,document:{querySelector:s=>nodes[s],querySelectorAll:()=>[]},window:{scrollTo(){}},location:{hash:''}});
+vm.runInContext(source.slice(0,source.indexOf("window.addEventListener('hashchange'")),ctx);vm.runInContext(`D=${JSON.stringify(data)}`,ctx);
+const run=e=>vm.runInContext(e,ctx);
 assert.equal(data.session.assignments.reduce((n,a)=>n+a.members,0),28);
 assert.deepEqual(data.session.assignments.map(a=>a.caseId),['nova','flexa','devicelink','biolinea','sitepulse','rutapiloto','nexocomercial']);
-assert(data.cases.find(c=>c.id==='rutapiloto').task.includes('cuatro personas'));
-assert(data.cases.find(c=>c.id==='nexocomercial').pressure.includes('No existen registros'));
+assert.deepEqual(data.rubric,JSON.parse(read('content/assessment-lab/rubrica.json')));
+for(const a of data.session.assignments){
+ const c=data.cases.find(c=>c.id===a.caseId);const text=run(`collaborativeText(caseForTeam(${a.team}))`);
+ for(const t of [...c.context,c.task,c.pressure,c.audience,...data.questions.map(q=>q.title)])assert(text.includes(t));
+ assert(text.includes('Integrante 4'));assert(!text.includes('Integrante 5'));
+ for(const hash of [`#equipo/${a.team}`,`#caso/${c.id}`]){ctx.location.hash=hash;run('render()');assert(nodes['#main'].innerHTML.includes(c.title));assert(nodes['#copy-text'].value.includes(c.title));assert(!nodes['#main'].innerHTML.includes('<form'));}
+}
+for(const forbidden of ['team-form','team-preview','showReport','beforeunload','state.teams','data-field=','Guardar como PDF','Trabajo del equipo'])assert(!(source+html).includes(forbidden),forbidden);
+assert(source.includes('textarea id="copy-text" readonly'));assert(run(`caseView({...caseForTeam(1),title:'<script>'})`).includes('&lt;script&gt;'));
+(async()=>{
+ let copied='';ctx.navigator={clipboard:{writeText:async t=>{copied=t}}};run('bindCopy(caseForTeam(7))');await nodes['#copy-team'].onclick();assert.equal(copied,run('collaborativeText(caseForTeam(7))'));assert(copied.includes('NexoComercial'));
+ ctx.navigator.clipboard.writeText=async()=>{throw Error('denied')};await nodes['#copy-team'].onclick();assert(nodes['#manual-copy'].open);assert(nodes['#copy-text'].selected);assert.equal(nodes['#copy-text'].value,copied);run('clearTimeout(timer)');
+ console.log('OK: seven cases, 28 places, legacy links, complete templates, clipboard and manual fallback, no response capture, escaping, unchanged rubric.');
+})().catch(e=>{console.error(e);process.exitCode=1});

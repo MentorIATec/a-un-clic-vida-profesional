@@ -38,3 +38,9 @@ for(const a of data.session.assignments){
 }
 assert(!run('bank()').includes('y plantilla'));
 assert(run('copyUI()').includes('>Copiar caso</button>'));
+
+const view=run('caseView(caseForTeam(1))');
+assert(view.includes('Como equipo a cargo de este caso, deben responder:'));
+assert(view.indexOf('<aside')<view.indexOf('id="copy-team"'));
+assert(!view.includes('Una fortaleza y experiencia pertinente por persona.'));
+assert(run('collaborativeText(caseForTeam(1))').includes('Una fortaleza y experiencia pertinente por persona.'));

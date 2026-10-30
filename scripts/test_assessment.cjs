@@ -44,3 +44,11 @@ assert(view.includes('Como equipo a cargo de este caso, deben responder:'));
 assert(view.indexOf('<aside')<view.indexOf('id="copy-team"'));
 assert(!view.includes('Una fortaleza y experiencia pertinente por persona.'));
 assert(run('collaborativeText(caseForTeam(1))').includes('Una fortaleza y experiencia pertinente por persona.'));
+
+const delivery=run('deliveryCard()');
+assert.equal((delivery.match(/<li>/g)||[]).length,3);
+assert(delivery.includes('No necesitan adjuntar también la presentación.'));
+assert(delivery.includes('href="#evaluacion"'));
+assert(!delivery.includes('Tiempo estimado'));assert(!delivery.includes('Material de consulta'));
+assert.equal((run('caseView(caseForTeam(1))').match(/id="delivery-title"/g)||[]).length,1);
+assert(!run('caseView(caseForTeam(1))').includes('<h2>Entregables</h2>'));

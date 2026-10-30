@@ -31,13 +31,13 @@ Consulten trabajos previos de la Semana Tec. Pueden usar editores locales o en l
 
 ## Trabajo desde varias computadoras
 
-Una persona pulsa «Copiar caso y plantilla de propuesta», pega el contenido en Google Docs o Word y comparte el documento con permiso de edición con su equipo. Todos escriben y guardan ahí.
+Una persona pulsa «Copiar caso», pega el contenido en Google Docs o Word y comparte el documento con permiso de edición con su equipo. Todos escriben y guardan ahí.
 
 El Lab sirve para consultar el caso, copiar la plantilla y revisar la rúbrica. Exporten la propuesta desde su documento compartido y entreguen en Canvas.
 
 ## Propuesta
 
-Seleccionen su equipo, pulsen «Copiar caso y plantilla de propuesta» y péguenlo en un documento compartido.
+Seleccionen su equipo, pulsen «Copiar caso» y péguenlo en un documento compartido.
 
 ### 1 Qué aporta cada persona
 

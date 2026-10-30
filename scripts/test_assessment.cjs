@@ -7,7 +7,7 @@ vm.runInContext(source.slice(0,source.indexOf("window.addEventListener('hashchan
 vm.runInContext(`D=${JSON.stringify(data)}`,ctx);
 const check=e=>assert.equal(vm.runInContext(e,ctx),true,e);
 check('D.cases.length===7 && D.questions.length===4');
-check('freshTeam(caseForTeam(7)).members.length===3 && freshTeam(caseForTeam(1)).members.length===4');
+check('freshTeam(caseForTeam(7)).members.length===4 && freshTeam(caseForTeam(1)).members.length===4');
 check("validLinkedIn('https://www.linkedin.com/in/ejemplo') && !validLinkedIn('javascript:alert(1)') && !validLinkedIn('https://linkedin.com.evil.test/in/test')");
 check("validRecord(freshTeam(caseForTeam(1)),'team',caseForTeam(1)) && !validRecord(freshTeam(caseForTeam(1)),'team',caseForTeam(2))");
 check("!('extra' in sanitizeRecord({...freshTeam(caseForTeam(1)),extra:'x'},'team',caseForTeam(1)))");
@@ -23,7 +23,7 @@ for(const c of data.cases)for(const s of [...c.context,c.task,c.pressure,c.audie
 assert.deepEqual(data.rubric,JSON.parse(read('content/assessment-lab/rubrica.json')));
 console.log('OK: student navigation, case fidelity, rubric, form, proposal, validation, escaping and removal of educator tools.');
 check("collaborativeText(caseForTeam(1),{...teamData(1),phrase:'Frase de prueba'}).includes('Frase de prueba')");
-check("collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 3') && !collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 4')");
+check("collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 3') && collaborativeText(caseForTeam(7),freshTeam(caseForTeam(7))).includes('Integrante 4')");
 check("collaborativeText(caseForTeam(1),teamData(1)).includes('no hay sincronización automática en ninguna dirección')");
 for(const q of data.questions)assert(vm.runInContext('collaborativeText(caseForTeam(1),teamData(1))',ctx).includes(q.title));
 (async()=>{
@@ -37,3 +37,8 @@ for(const q of data.questions)assert(vm.runInContext('collaborativeText(caseForT
  vm.runInContext('clearTimeout(timer)',ctx);
  console.log('OK: collaboration copy, existing answers, team size, four questions and manual fallback.');
 })().catch(e=>{console.error(e);process.exitCode=1});
+
+assert.equal(data.session.assignments.reduce((n,a)=>n+a.members,0),28);
+assert.deepEqual(data.session.assignments.map(a=>a.caseId),['nova','flexa','devicelink','biolinea','sitepulse','rutapiloto','nexocomercial']);
+assert(data.cases.find(c=>c.id==='rutapiloto').task.includes('cuatro personas'));
+assert(data.cases.find(c=>c.id==='nexocomercial').pressure.includes('No existen registros'));

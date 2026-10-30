@@ -17,7 +17,9 @@ Tiempo estimado: 30 min
 
 1. Propuesta: respondan las cuatro preguntas en un documento compartido.
 
-2. Apoyo visual: preparen diapositivas o un one pager con las respuestas, la frase memorable y el nombre + enlace o QR de LinkedIn de cada integrante.
+2. Apoyo visual: preparen diapositivas o una página visual con las respuestas, la frase memorable y el nombre visible + enlace de LinkedIn de cada integrante. El QR es opcional.
+
+Entrega en Canvas: suban la plantilla completa en PDF e incluyan la liga a su presentación o apoyo visual. Comprueben que la profesora pueda abrirla; no es necesario hacer público el archivo.
 
 Material de consulta: trabajos de la Semana Tec y perfiles de LinkedIn. Sin investigación externa ni IA.
 
@@ -53,4 +55,4 @@ Por integrante: **Nombre / fortaleza y conocimiento / experiencia concreta / apl
 
 **Valor para este proyecto / frase memorable / compromiso realizable.**
 
-Antes de entregar, comprueben que el apoyo visual incluya las cuatro respuestas, la frase memorable y el nombre con enlace o QR de LinkedIn de cada integrante.
+Antes de entregar, comprueben que el apoyo visual incluya las cuatro respuestas, la frase memorable y el nombre visible y el enlace de LinkedIn de cada integrante. El QR es opcional.

@@ -23,6 +23,6 @@ assert(source.includes('textarea id="copy-text" readonly'));assert(run(`caseView
 })().catch(e=>{console.error(e);process.exitCode=1});
 
 assert(run('bank()').includes('Abrir formulario de coevaluación'));
-assert(run('caseView(caseForTeam(7))').includes('Valora a los otros seis equipos, nunca al tuyo.'));
+assert(run('caseView(caseForTeam(7))').includes('Valora a los otros seis equipos, al tuyo no.'));
 assert(run('coevaluation()').includes('1FAIpQLSehy9F0E_Z835ovZP8fnXZaYFMoR0L-uIC1f5MDCgFDNZzArw/viewform'));
 assert(run('coevaluation()').includes('rel="noopener noreferrer"'));

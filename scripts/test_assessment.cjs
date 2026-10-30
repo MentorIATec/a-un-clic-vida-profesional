@@ -21,3 +21,8 @@ assert(source.includes('textarea id="copy-text" readonly'));assert(run(`caseView
  ctx.navigator.clipboard.writeText=async()=>{throw Error('denied')};await nodes['#copy-team'].onclick();assert(nodes['#manual-copy'].open);assert(nodes['#copy-text'].selected);assert.equal(nodes['#copy-text'].value,copied);run('clearTimeout(timer)');
  console.log('OK: seven cases, 28 places, legacy links, complete templates, clipboard and manual fallback, no response capture, escaping, unchanged rubric.');
 })().catch(e=>{console.error(e);process.exitCode=1});
+
+assert(run('bank()').includes('Abrir formulario de coevaluación'));
+assert(run('caseView(caseForTeam(7))').includes('Valora a los otros seis equipos, nunca al tuyo.'));
+assert(run('coevaluation()').includes('1FAIpQLSehy9F0E_Z835ovZP8fnXZaYFMoR0L-uIC1f5MDCgFDNZzArw/viewform'));
+assert(run('coevaluation()').includes('rel="noopener noreferrer"'));
